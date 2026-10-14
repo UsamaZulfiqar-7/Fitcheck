@@ -11,21 +11,27 @@ Google OAuth setup:
   3. OAuth consent screen → External → fill app name/email
   4. Credentials → Create OAuth client ID → Web application
      - Authorised JavaScript origins: http://localhost:8501
-     - Authorised redirect URIs: http://localhost:8501/oauth2callback
+     - Authorised redirect URIs: http://localhost:8501/
   5. Copy Client ID and Client Secret to your .env as:
        GOOGLE_CLIENT_ID=...
        GOOGLE_CLIENT_SECRET=...
-       GOOGLE_REDIRECT_URI=http://localhost:8501/oauth2callback
+       GOOGLE_REDIRECT_URI=http://localhost:8501/
 """
 from __future__ import annotations
 
 import hashlib
+import hmac
+import logging
 import os
 import secrets
+import threading
+import time
 import urllib.parse
 from typing import Optional
 
 import config
+
+log = logging.getLogger("fitcheck.auth")
 
 # ---------------------------------------------------------------------------
 # Password hashing (offline, no dependency beyond stdlib)
@@ -44,7 +50,7 @@ def make_password(password: str) -> tuple[str, str]:
 
 def check_password(password: str, salt: str, hashed: str) -> bool:
     """Verify a plain-text password against the stored hash."""
-    return _hash_password(password, salt) == hashed
+    return hmac.compare_digest(_hash_password(password, salt), hashed)
 
 
 # ---------------------------------------------------------------------------
@@ -54,6 +60,34 @@ def check_password(password: str, salt: str, hashed: str) -> bool:
 GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token"
 GOOGLE_USERINFO_URL = "https://www.googleapis.com/oauth2/v3/userinfo"
+_OAUTH_STATE_TTL_SECONDS = 600
+_oauth_states: dict[str, float] = {}
+_oauth_states_lock = threading.Lock()
+
+
+def create_google_state() -> str:
+    """Create a short-lived, one-time OAuth state token."""
+    now = time.monotonic()
+    state_token = secrets.token_urlsafe(32)
+    with _oauth_states_lock:
+        expired = [token for token, expires_at in _oauth_states.items() if expires_at <= now]
+        for token in expired:
+            del _oauth_states[token]
+        _oauth_states[state_token] = now + _OAUTH_STATE_TTL_SECONDS
+    return state_token
+
+
+def consume_google_state(state_token: str | None) -> bool:
+    """Validate and consume an OAuth state token, including its expiry."""
+    if not state_token:
+        return False
+    now = time.monotonic()
+    with _oauth_states_lock:
+        expires_at = _oauth_states.pop(state_token, None)
+        expired = [token for token, expiry in _oauth_states.items() if expiry <= now]
+        for token in expired:
+            del _oauth_states[token]
+    return expires_at is not None and expires_at > now
 
 
 def google_is_configured() -> bool:
@@ -67,9 +101,7 @@ def google_is_configured() -> bool:
 def google_auth_url(state_token: str) -> str:
     """Build the Google OAuth consent-page URL."""
     client_id = os.getenv("GOOGLE_CLIENT_ID", "").strip()
-    redirect_uri = os.getenv(
-        "GOOGLE_REDIRECT_URI", "http://localhost:8501/oauth2callback"
-    ).strip()
+    redirect_uri = os.getenv("GOOGLE_REDIRECT_URI", "http://localhost:8501/").strip()
     params = {
         "client_id": client_id,
         "redirect_uri": redirect_uri,
@@ -89,13 +121,12 @@ def google_exchange_code(code: str) -> Optional[dict]:
     Returns None on failure.
     """
     import json
+    import urllib.error
     import urllib.request
 
     client_id = os.getenv("GOOGLE_CLIENT_ID", "").strip()
     client_secret = os.getenv("GOOGLE_CLIENT_SECRET", "").strip()
-    redirect_uri = os.getenv(
-        "GOOGLE_REDIRECT_URI", "http://localhost:8501/oauth2callback"
-    ).strip()
+    redirect_uri = os.getenv("GOOGLE_REDIRECT_URI", "http://localhost:8501/").strip()
 
     # 1. Exchange code for tokens
     token_data = urllib.parse.urlencode(
@@ -116,11 +147,13 @@ def google_exchange_code(code: str) -> Optional[dict]:
         )
         with urllib.request.urlopen(req, timeout=10) as resp:
             tokens = json.loads(resp.read())
-    except Exception:
+    except (urllib.error.URLError, TimeoutError, OSError, json.JSONDecodeError):
+        log.exception("Google OAuth token exchange failed")
         return None
 
     access_token = tokens.get("access_token")
     if not access_token:
+        log.error("Google OAuth token response did not include an access token")
         return None
 
     # 2. Fetch user info
@@ -129,9 +162,12 @@ def google_exchange_code(code: str) -> Optional[dict]:
             GOOGLE_USERINFO_URL,
             headers={"Authorization": f"Bearer {access_token}"},
         )
+        req2.add_header("Authorization", f"Bearer {access_token}")
         with urllib.request.urlopen(req2, timeout=10) as resp2:
-            return json.loads(resp2.read())
-    except Exception:
+            user_info = json.loads(resp2.read())
+            return user_info if isinstance(user_info, dict) else None
+    except (urllib.error.URLError, TimeoutError, OSError, json.JSONDecodeError):
+        log.exception("Google OAuth user-info request failed")
         return None
 
 

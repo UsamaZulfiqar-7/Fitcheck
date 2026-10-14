@@ -6,8 +6,6 @@ Handles:
 """
 from __future__ import annotations
 
-import secrets
-
 import streamlit as st
 
 from core import auth, repository as repo
@@ -26,20 +24,22 @@ def _handle_google_callback() -> None:
     if not code:
         return
 
-    # Validate CSRF state token
-    if state_token != st.session_state.get("_oauth_state"):
+    if not auth.consume_google_state(state_token):
         st.error("⚠️ OAuth state mismatch. Please try signing in again.")
-        st.session_state.pop("_oauth_state", None)
         st.query_params.clear()
         return
 
-    st.session_state.pop("_oauth_state", None)
     st.query_params.clear()
 
     with st.spinner("Completing Google sign-in…"):
         user_info = auth.google_exchange_code(code)
 
-    if not user_info:
+    if (
+        not user_info
+        or not user_info.get("sub")
+        or not user_info.get("email")
+        or user_info.get("email_verified") is not True
+    ):
         st.error("❌ Google sign-in failed. Please try again.")
         return
 
@@ -258,8 +258,7 @@ def _google_sign_in_button() -> None:
         )
         return
 
-    state_token = secrets.token_urlsafe(24)
-    st.session_state["_oauth_state"] = state_token
+    state_token = auth.create_google_state()
     google_url = auth.google_auth_url(state_token)
 
     google_icon = (
@@ -330,10 +329,11 @@ def render() -> None:
 
 
 def _render_signin() -> None:
-    email_in = st.text_input("Email address", placeholder="you@example.com", key="signin_email")
-    pw_in = st.text_input("Password", type="password", placeholder="••••••••", key="signin_password")
-    st.write("")
-    if st.button("Sign In", type="primary", key="btn_signin"):
+    with st.form("signin_form"):
+        email_in = st.text_input("Email address", placeholder="you@example.com", key="signin_email")
+        pw_in = st.text_input("Password", type="password", placeholder="••••••••", key="signin_password")
+        submitted = st.form_submit_button("Sign In", type="primary", key="btn_signin")
+    if submitted:
         if not email_in or not pw_in:
             st.error("Please enter your email and password.")
             return
@@ -358,12 +358,13 @@ def _render_signin() -> None:
 
 
 def _render_signup() -> None:
-    name_in = st.text_input("Full name / Display name", placeholder="Your Name", key="signup_name")
-    email_in = st.text_input("Email address", placeholder="you@example.com", key="signup_email")
-    pw_in = st.text_input("Password (min 8 chars)", type="password", placeholder="••••••••", key="signup_password")
-    pw2_in = st.text_input("Confirm password", type="password", placeholder="••••••••", key="signup_password2")
-    st.write("")
-    if st.button("Create Account", type="primary", key="btn_signup"):
+    with st.form("signup_form"):
+        name_in = st.text_input("Full name / Display name", placeholder="Your Name", key="signup_name")
+        email_in = st.text_input("Email address", placeholder="you@example.com", key="signup_email")
+        pw_in = st.text_input("Password (min 8 chars)", type="password", placeholder="••••••••", key="signup_password")
+        pw2_in = st.text_input("Confirm password", type="password", placeholder="••••••••", key="signup_password2")
+        submitted = st.form_submit_button("Create Account", type="primary", key="btn_signup")
+    if submitted:
         if not all([name_in, email_in, pw_in, pw2_in]):
             st.error("All fields are required.")
             return

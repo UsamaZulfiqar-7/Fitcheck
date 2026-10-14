@@ -51,6 +51,27 @@ def test_all_pages_render_empty_profile():
     assert any("Start" in b.label for b in at.button)
 
 
+def test_signup_and_signin_forms():
+    at = new_app()
+    email = f"login-{UNIQ}@example.com"
+    password = "safe-test-password"
+
+    at.text_input(key="signup_name").set_value(f"Login Tester {UNIQ}")
+    at.text_input(key="signup_email").set_value(email)
+    at.text_input(key="signup_password").set_value(password)
+    at.text_input(key="signup_password2").set_value(password)
+    at.button(key="btn_signup").click().run()
+    assert not at.exception, [e.value for e in at.exception]
+    assert at.session_state["_fitcheck_auth"]["email"] == email
+
+    at = new_app()
+    at.text_input(key="signin_email").set_value(email)
+    at.text_input(key="signin_password").set_value(password)
+    at.button(key="btn_signin").click().run()
+    assert not at.exception, [e.value for e in at.exception]
+    assert at.session_state["_fitcheck_auth"]["email"] == email
+
+
 def test_all_pages_render_with_analysis():
     at = new_app()
     set_profile(at, NAME)                       # latest analysis is restored from the database
