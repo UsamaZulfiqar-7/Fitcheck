@@ -162,85 +162,174 @@ def _unbullet(line: str) -> str:
 def to_docx(sections: list[Section]) -> bytes:
     from docx import Document
     from docx.enum.text import WD_ALIGN_PARAGRAPH
+    from docx.oxml import OxmlElement
+    from docx.oxml.ns import qn
     from docx.shared import Inches, Pt, RGBColor
 
     doc = Document()
     for sec in doc.sections:
-        sec.left_margin = sec.right_margin = Inches(0.8)
-        sec.top_margin = sec.bottom_margin = Inches(0.7)
+        sec.left_margin = sec.right_margin = Inches(0.75)
+        sec.top_margin = sec.bottom_margin = Inches(0.65)
+
     base = doc.styles["Normal"]
     base.font.name = "Calibri"
-    base.font.size = Pt(10.5)
-    indigo = RGBColor(0x1E, 0x3A, 0x8A)
+    base.font.size = Pt(10)
+    navy = RGBColor(0x0F, 0x17, 0x2A)       # Slate 900
+    indigo = RGBColor(0x1E, 0x3A, 0x8A)     # Deep Corporate Navy
+    muted = RGBColor(0x47, 0x55, 0x69)      # Slate 600
+
+    def add_bottom_border(paragraph):
+        pPr = paragraph._p.get_or_add_pPr()
+        pBdr = OxmlElement('w:pBdr')
+        bottom = OxmlElement('w:bottom')
+        bottom.set(qn('w:val'), 'single')
+        bottom.set(qn('w:sz'), '6')
+        bottom.set(qn('w:space'), '1')
+        bottom.set(qn('w:color'), 'CBD5E1')
+        pBdr.append(bottom)
+        pPr.append(pBdr)
 
     name, contact, rest = _split_header(sections)
     if name:
         p = doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.paragraph_format.space_before = Pt(0)
+        p.paragraph_format.space_after = Pt(2)
         run = p.add_run(name)
         run.bold = True
-        run.font.size = Pt(20)
-        run.font.color.rgb = indigo
-    for line in contact:
-        p = doc.add_paragraph(line)
+        run.font.size = Pt(22)
+        run.font.color.rgb = navy
+
+    if contact:
+        p = doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        p.paragraph_format.space_after = Pt(0)
+        p.paragraph_format.space_before = Pt(0)
+        p.paragraph_format.space_after = Pt(8)
+        joined_contact = "  •  ".join(ln.strip() for ln in contact if ln.strip())
+        run = p.add_run(joined_contact)
+        run.font.size = Pt(9.5)
+        run.font.color.rgb = muted
+        add_bottom_border(p)
+
     for sec in rest:
         if sec.heading:
             p = doc.add_paragraph()
             p.paragraph_format.space_before = Pt(10)
-            p.paragraph_format.space_after = Pt(2)
+            p.paragraph_format.space_after = Pt(3)
+            p.paragraph_format.keep_with_next = True
             run = p.add_run(sec.heading.upper())
             run.bold = True
-            run.font.size = Pt(12)
+            run.font.size = Pt(11.5)
             run.font.color.rgb = indigo
+            add_bottom_border(p)
+
         for line in sec.lines:
             if not line.strip():
                 continue
             if _is_bullet(line):
-                doc.add_paragraph(_unbullet(line), style="List Bullet").paragraph_format.space_after = Pt(0)
+                p = doc.add_paragraph(style="List Bullet")
+                p.paragraph_format.space_before = Pt(0)
+                p.paragraph_format.space_after = Pt(1.5)
+                p.paragraph_format.left_indent = Inches(0.25)
+                text = _unbullet(line)
+                # If there's a bold prefix like "Languages: Python, Go"
+                if ":" in text and len(text.split(":", 1)[0].split()) <= 4:
+                    prefix, rest_text = text.split(":", 1)
+                    r_pre = p.add_run(prefix + ":")
+                    r_pre.bold = True
+                    r_pre.font.color.rgb = navy
+                    r_rest = p.add_run(rest_text)
+                    r_rest.font.color.rgb = navy
+                else:
+                    r = p.add_run(text)
+                    r.font.color.rgb = navy
             else:
-                doc.add_paragraph(line.strip()).paragraph_format.space_after = Pt(2)
+                p = doc.add_paragraph()
+                p.paragraph_format.space_before = Pt(0)
+                p.paragraph_format.space_after = Pt(2.5)
+                text = line.strip()
+                if ":" in text and len(text.split(":", 1)[0].split()) <= 4:
+                    prefix, rest_text = text.split(":", 1)
+                    r_pre = p.add_run(prefix + ":")
+                    r_pre.bold = True
+                    r_pre.font.color.rgb = navy
+                    r_rest = p.add_run(rest_text)
+                    r_rest.font.color.rgb = navy
+                else:
+                    r = p.add_run(text)
+                    r.font.color.rgb = navy
+
     buffer = io.BytesIO()
     doc.save(buffer)
     return buffer.getvalue()
 
 
 def to_pdf(sections: list[Section]) -> bytes:
+    from reportlab.graphics.shapes import Drawing, Line
     from reportlab.lib import colors
-    from reportlab.lib.enums import TA_CENTER
+    from reportlab.lib.enums import TA_CENTER, TA_LEFT
     from reportlab.lib.pagesizes import A4
     from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
     from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
 
     styles = getSampleStyleSheet()
+    navy = colors.HexColor("#0F172A")
     indigo = colors.HexColor("#1E3A8A")
-    title = ParagraphStyle("t", parent=styles["Title"], textColor=indigo, fontSize=20, spaceAfter=4)
-    center = ParagraphStyle("c", parent=styles["BodyText"], alignment=TA_CENTER, fontSize=9.5, leading=12)
-    head = ParagraphStyle("h", parent=styles["Heading3"], textColor=indigo, spaceBefore=10, spaceAfter=3)
-    body = ParagraphStyle("b", parent=styles["BodyText"], fontSize=10, leading=13)
-    bullet = ParagraphStyle("bl", parent=body, leftIndent=14, bulletIndent=4)
+    muted = colors.HexColor("#475569")
+    line_col = colors.HexColor("#CBD5E1")
+
+    title_style = ParagraphStyle("t", parent=styles["Title"], textColor=navy, fontSize=20, leading=24,
+                                 alignment=TA_CENTER, spaceAfter=2)
+    contact_style = ParagraphStyle("c", parent=styles["BodyText"], alignment=TA_CENTER, fontSize=9, leading=12,
+                                   textColor=muted, spaceAfter=6)
+    head_style = ParagraphStyle("h", parent=styles["Heading3"], textColor=indigo, fontSize=11, leading=14,
+                                spaceBefore=8, spaceAfter=2, fontName="Helvetica-Bold")
+    body_style = ParagraphStyle("b", parent=styles["BodyText"], fontSize=9.5, leading=13.5, textColor=navy,
+                                spaceBefore=0, spaceAfter=2.5)
+    bullet_style = ParagraphStyle("bl", parent=body_style, leftIndent=14, bulletIndent=4, spaceBefore=0, spaceAfter=2)
 
     buffer = io.BytesIO()
-    doc = SimpleDocTemplate(buffer, pagesize=A4, leftMargin=44, rightMargin=44, topMargin=40, bottomMargin=40)
+    # 38pt margins for balanced page distribution
+    doc = SimpleDocTemplate(buffer, pagesize=A4, leftMargin=38, rightMargin=38, topMargin=36, bottomMargin=36)
     name, contact, rest = _split_header(sections)
     story = []
+
     if name:
-        story.append(Paragraph(escape(name), title))
-    for line in contact:
-        story.append(Paragraph(escape(line), center))
+        story.append(Paragraph(escape(name), title_style))
+    if contact:
+        joined_contact = "  &bull;  ".join(escape(ln.strip()) for ln in contact if ln.strip())
+        story.append(Paragraph(joined_contact, contact_style))
+        d = Drawing(doc.width, 2)
+        d.add(Line(0, 0, doc.width, 0, strokeColor=line_col, strokeWidth=0.8))
+        story.append(d)
+        story.append(Spacer(1, 4))
+
     for sec in rest:
         if sec.heading:
-            story.append(Paragraph(escape(sec.heading.upper()), head))
+            story.append(Paragraph(escape(sec.heading.upper()), head_style))
+            d = Drawing(doc.width, 2)
+            d.add(Line(0, 0, doc.width, 0, strokeColor=line_col, strokeWidth=0.8))
+            story.append(d)
+            story.append(Spacer(1, 2))
+
         for line in sec.lines:
             if not line.strip():
-                story.append(Spacer(1, 4))
+                story.append(Spacer(1, 3))
             elif _is_bullet(line):
-                story.append(Paragraph(escape(_unbullet(line)), bullet, bulletText="•"))
+                text = escape(_unbullet(line))
+                if ":" in text and len(text.split(":", 1)[0].split()) <= 4:
+                    prefix, rest_t = text.split(":", 1)
+                    text = f"<b>{prefix}:</b>{rest_t}"
+                story.append(Paragraph(text, bullet_style, bulletText="&bull;"))
             else:
-                story.append(Paragraph(escape(line.strip()), body))
+                text = escape(line.strip())
+                if ":" in text and len(text.split(":", 1)[0].split()) <= 4:
+                    prefix, rest_t = text.split(":", 1)
+                    text = f"<b>{prefix}:</b>{rest_t}"
+                story.append(Paragraph(text, body_style))
+
     if not story:
-        story.append(Paragraph("(empty CV)", body))
+        story.append(Paragraph("(empty CV)", body_style))
     doc.build(story)
     return buffer.getvalue()
 

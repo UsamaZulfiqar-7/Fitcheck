@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 
 INDIGO, BLUE, SOFT, GOOD, WARN = "#4F46E5", "#2563EB", "#E0E7FF", "#059669", "#D97706"
 _LAYOUT = dict(paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-               font=dict(family="Inter, Segoe UI, sans-serif", color="#1E293B"), margin=dict(l=10, r=10, t=40, b=10))
+               font=dict(family="Plus Jakarta Sans, Inter, sans-serif", color="#0F172A"), margin=dict(l=10, r=10, t=40, b=10))
 
 
 def gauge(score: float, title: str = "Overall match") -> go.Figure:

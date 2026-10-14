@@ -16,9 +16,12 @@ STEPS = [
 
 
 def render() -> None:
-    theme.hero("Close the gap between your CV and the job",
-               "FitCheck compares your resume with a job posting, shows exactly which skills are missing, teaches you those "
-               "skills step by step, and updates your CV only after you confirm that you learned them.")
+    theme.hero(
+        "Close the gap between your CV and the job",
+        "FitCheck compares your resume with a job posting, shows exactly which skills are missing, teaches you those "
+        "skills step by step, and updates your CV only after you confirm that you learned them.",
+        badge_text="NetSol Presentation Edition",
+    )
     ctx = state.current()
     cand = st.session_state["cand_id"]
     status = state.workflow_status()
@@ -49,12 +52,18 @@ def render() -> None:
             html += (f'<div class="step {"done" if done else ""}"><div class="num">{"✓" if done else i}</div>'
                      f'<div><div class="t">{title}</div><div class="d">{desc}</div></div></div>')
         theme.card(html)
-        c1, c2 = st.columns(2)
-        c1.button("Start / new analysis", type="primary", on_click=theme.go, args=("Resume & Job Analysis",),
-                  width="stretch", key="home_start")
         if ctx:
-            c2.button("Open my learning center", on_click=theme.go, args=("Personalized Learning Center",),
+            c1, c2, c3 = st.columns(3)
+            c1.button("Start new analysis", type="primary", on_click=theme.go, args=("Resume & Job Analysis",),
+                      width="stretch", key="home_start")
+            c2.button("🤖 AI Assistant", on_click=theme.go, args=("AI Skill Assistant",),
+                      width="stretch", key="home_chat")
+            c3.button("Learning Center", on_click=theme.go, args=("Personalized Learning Center",),
                       width="stretch", key="home_learn")
+        else:
+            c1, _ = st.columns([1, 1])
+            c1.button("Start analysis", type="primary", on_click=theme.go, args=("Resume & Job Analysis",),
+                      width="stretch", key="home_start")
     with right:
         st.subheader("Scoring in one minute")
         theme.card(

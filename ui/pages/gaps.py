@@ -26,8 +26,20 @@ def _open_learning(skill: str) -> None:
     theme.go("Personalized Learning Center")
 
 
+def _ask_ai_skill(skill: str) -> None:
+    prompt = f"How should I learn and demonstrate {skill} for this job? What interview questions might they ask?"
+    if "chat_history" not in st.session_state or not st.session_state["chat_history"]:
+        st.session_state["chat_history"] = []
+    st.session_state["chat_history"].append({"role": "user", "content": prompt})
+    theme.go("AI Skill Assistant")
+
+
 def render() -> None:
-    theme.hero("Skill Gap Analysis", "What the job asks for, what your CV already shows, and what is missing.")
+    theme.hero(
+        "Skill Gap Analysis",
+        "What the job asks for, what your CV already shows, and what is missing.",
+        badge_text="NetSol Enterprise Gap Matrix",
+    )
     ctx = state.current()
     if not ctx:
         theme.empty_state("No analysis yet", "Run an analysis to see your skill gaps.", "Go to Resume & Job Analysis",
@@ -70,5 +82,8 @@ def render() -> None:
             for skill in skills:
                 with st.expander(f"Why {skill} matters for this job"):
                     st.markdown(lc.why_it_matters(skill, label, job.title, job.text))
-                    st.button(f"Learn {skill}", key=f"gap_learn_{key}_{skill}", on_click=_open_learning, args=(skill,),
-                              type="primary")
+                    b1, b2 = st.columns(2)
+                    b1.button(f"Learn {skill}", key=f"gap_learn_{key}_{skill}", on_click=_open_learning, args=(skill,),
+                              type="primary", width="stretch")
+                    b2.button(f"Ask AI Coach about {skill}", key=f"gap_ai_{key}_{skill}", on_click=_ask_ai_skill,
+                              args=(skill,), width="stretch")

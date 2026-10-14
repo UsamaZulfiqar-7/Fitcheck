@@ -10,7 +10,7 @@ from tests.conftest import UNIQ
 from tests.sample_files import CV_TEXT, JOB_TEXT
 
 PAGES = ["Home Dashboard", "Resume & Job Analysis", "Match Results", "Skill Gap Analysis",
-         "Personalized Learning Center", "My Learning Progress", "Updated CV & Downloads", "Settings"]
+         "AI Skill Assistant", "Personalized Learning Center", "My Learning Progress", "Updated CV & Downloads", "Settings"]
 NAME = f"UI Tester {UNIQ}"
 
 

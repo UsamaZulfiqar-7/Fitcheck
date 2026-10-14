@@ -7,7 +7,7 @@ import config
 from core import repository as repo
 
 PAGES = ["Home Dashboard", "Resume & Job Analysis", "Match Results", "Skill Gap Analysis",
-         "Personalized Learning Center", "My Learning Progress", "Updated CV & Downloads", "Settings"]
+         "AI Skill Assistant", "Personalized Learning Center", "My Learning Progress", "Updated CV & Downloads", "Settings"]
 
 
 def init() -> None:

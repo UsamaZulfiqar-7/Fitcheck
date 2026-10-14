@@ -4,13 +4,24 @@ import streamlit as st
 st.set_page_config(page_title="FitCheck", page_icon="🎯", layout="wide", initial_sidebar_state="expanded")
 
 from ui import state, theme  # noqa: E402
-from ui.pages import analysis, cv_page, gaps, home, learning, progress, results, settings_page  # noqa: E402
+from ui.pages import (  # noqa: E402
+    analysis,
+    chat_page,
+    cv_page,
+    gaps,
+    home,
+    learning,
+    progress,
+    results,
+    settings_page,
+)
 
 ROUTES = {
     "Home Dashboard": home.render,
     "Resume & Job Analysis": analysis.render,
     "Match Results": results.render,
     "Skill Gap Analysis": gaps.render,
+    "AI Skill Assistant": chat_page.render,
     "Personalized Learning Center": learning.render,
     "My Learning Progress": progress.render,
     "Updated CV & Downloads": cv_page.render,
@@ -28,8 +39,14 @@ def main() -> None:
     st.session_state.setdefault("nav", "Home Dashboard")
 
     with st.sidebar:
-        st.markdown('<div class="brand">Fit<span>Check</span></div>', unsafe_allow_html=True)
-        st.caption("Resume & job skill gap analyzer")
+        st.markdown(
+            '<div class="brand-container">'
+            '<div class="brand">Fit<span>Check</span></div>'
+            '<span class="vip-badge">NetSol Ed.</span>'
+            '</div>',
+            unsafe_allow_html=True,
+        )
+        st.caption("Enterprise Resume & Skill Gap Analyzer")
         name = st.text_input("Your profile name", value=st.session_state.get("cand_name") or "Guest", key="profile_name",
                              help="Your progress is saved under this name, so you can continue after restarting.")
         try:
