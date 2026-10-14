@@ -1,0 +1,4 @@
+# Optional features - FitCheck works without any of these.
+anthropic>=0.40            # AI-written personalised lesson notes (needs ANTHROPIC_API_KEY)
+sentence-transformers>=3.0 # semantic similarity in addition to TF-IDF (downloads a model on first use)
+minio>=7.2                 # mirror uploaded files to MinIO / S3-compatible storage

@@ -1,0 +1,1340 @@
+job_id,title,company,location,employment_type,description,required_skills,preferred_skills,is_synthetic
+SYN-001,Data Analyst,Lotus Digital Works (synthetic),Remote (EMEA),Full-time,"Data Analyst at Lotus Digital Works (synthetic)
+
+About the role
+Turn business data into clear insights for managers and product teams.
+
+Responsibilities:
+- Answer business questions with data and explain the findings in plain language.
+- Work with stakeholders to define the metrics that matter.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Strong working knowledge of SQL.
+- Hands-on experience with Tableau.
+- Hands-on experience with Power BI.
+- Solid understanding of Excel.
+- Solid understanding of Data Visualization.
+
+Nice to have:
+- Machine Learning is a plus.
+- Familiarity with Communication is an advantage.
+- Looker is a plus.
+- Familiarity with AWS is an advantage.",SQL|Tableau|Power BI|Excel|Data Visualization,Machine Learning|Communication|Looker|AWS,True
+SYN-002,Data Analyst,Bluebird Data Labs (synthetic),"Karachi, Pakistan",Contract,"Data Analyst at Bluebird Data Labs (synthetic)
+
+About the role
+Turn business data into clear insights for managers and product teams.
+
+Responsibilities:
+- Answer business questions with data and explain the findings in plain language.
+- Build weekly reports and keep numbers consistent across teams.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Strong working knowledge of Data Analysis.
+- Proficiency in Tableau.
+- Proficiency in SQL.
+- Solid understanding of Data Visualization.
+- Proficiency in Excel.
+- Strong working knowledge of Power BI.
+- Practical experience using Python on real projects.
+- Solid understanding of Statistics.
+
+Nice to have:
+- Spark is a plus.
+- Experience with AWS is a plus.",Data Analysis|Tableau|SQL|Data Visualization|Excel|Power BI|Python|Statistics,Spark|AWS,True
+SYN-003,Data Analyst,Lotus Digital Works (synthetic),"Islamabad, Pakistan",Full-time,"Data Analyst at Lotus Digital Works (synthetic)
+
+About the role
+Turn business data into clear insights for managers and product teams.
+
+Responsibilities:
+- Build weekly reports and keep numbers consistent across teams.
+- Work with stakeholders to define the metrics that matter.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in Data Analysis.
+- Hands-on experience with Power BI.
+- Proficiency in Excel.
+- Proficiency in SQL.
+- Hands-on experience with Statistics.
+- Proficiency in Data Cleaning.
+- Strong working knowledge of Python.
+
+Nice to have:
+- Familiarity with Spark is an advantage.
+- Familiarity with Machine Learning is an advantage.",Data Analysis|Power BI|Excel|SQL|Statistics|Data Cleaning|Python,Spark|Machine Learning,True
+SYN-004,Data Analyst,Northwind Analytics (synthetic),"Riyadh, Saudi Arabia",Internship,"Data Analyst at Northwind Analytics (synthetic)
+
+About the role
+Turn business data into clear insights for managers and product teams.
+
+Responsibilities:
+- Answer business questions with data and explain the findings in plain language.
+- Work with stakeholders to define the metrics that matter.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in Data Cleaning.
+- Practical experience using Data Visualization on real projects.
+- Proficiency in Tableau.
+- Strong working knowledge of Statistics.
+- Hands-on experience with Pandas.
+- Solid understanding of Data Analysis.
+
+Nice to have:
+- Familiarity with Looker is an advantage.
+- Experience with AWS is a plus.",Data Cleaning|Data Visualization|Tableau|Statistics|Pandas|Data Analysis,Looker|AWS,True
+SYN-005,Data Analyst,Orchid Software House (synthetic),"Jeddah, Saudi Arabia",Full-time,"Data Analyst at Orchid Software House (synthetic)
+
+About the role
+Turn business data into clear insights for managers and product teams.
+
+Responsibilities:
+- Answer business questions with data and explain the findings in plain language.
+- Build weekly reports and keep numbers consistent across teams.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Strong working knowledge of Data Cleaning.
+- Strong working knowledge of Python.
+- Strong working knowledge of Tableau.
+- Hands-on experience with Excel.
+- Hands-on experience with Data Visualization.
+- Practical experience using Data Analysis on real projects.
+- Solid understanding of Pandas.
+- Strong working knowledge of Power BI.
+
+Nice to have:
+- Experience with Git is a plus.
+- Experience with Communication is a plus.
+- Familiarity with Looker is an advantage.
+- Experience with Spark is a plus.",Data Cleaning|Python|Tableau|Excel|Data Visualization|Data Analysis|Pandas|Power BI,Git|Communication|Looker|Spark,True
+SYN-006,Data Analyst,Falcon Insight Group (synthetic),"Islamabad, Pakistan",Full-time,"Data Analyst at Falcon Insight Group (synthetic)
+
+About the role
+Turn business data into clear insights for managers and product teams.
+
+Responsibilities:
+- Work with stakeholders to define the metrics that matter.
+- Answer business questions with data and explain the findings in plain language.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Pandas.
+- Strong working knowledge of Tableau.
+- Proficiency in Statistics.
+- Solid understanding of SQL.
+- Solid understanding of Python.
+
+Nice to have:
+- Spark is a plus.
+- Git is a plus.
+- Experience with Machine Learning is a plus.",Pandas|Tableau|Statistics|SQL|Python,Spark|Git|Machine Learning,True
+SYN-007,Business Intelligence Analyst,Bluebird Data Labs (synthetic),Remote (EMEA),Full-time,"Business Intelligence Analyst at Bluebird Data Labs (synthetic)
+
+About the role
+Own the reporting layer that managers use to run the business.
+
+Responsibilities:
+- Gather reporting requirements from finance and operations.
+- Validate numbers against source systems before every release.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Strong working knowledge of Data Visualization.
+- Solid understanding of Power BI.
+- Hands-on experience with Communication.
+- Hands-on experience with Excel.
+- Practical experience using Tableau on real projects.
+- Solid understanding of SQL.
+- Hands-on experience with ETL.
+
+Nice to have:
+- Experience with Statistics is a plus.
+- Familiarity with Python is an advantage.",Data Visualization|Power BI|Communication|Excel|Tableau|SQL|ETL,Statistics|Python,True
+SYN-008,Business Intelligence Analyst,Bluebird Data Labs (synthetic),"Riyadh, Saudi Arabia",Full-time,"Business Intelligence Analyst at Bluebird Data Labs (synthetic)
+
+About the role
+Own the reporting layer that managers use to run the business.
+
+Responsibilities:
+- Validate numbers against source systems before every release.
+- Design report layouts that executives can read in one minute.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Data Warehousing.
+- Solid understanding of ETL.
+- Hands-on experience with Tableau.
+- Solid understanding of Data Visualization.
+- Hands-on experience with Excel.
+- Strong working knowledge of Data Modeling.
+
+Nice to have:
+- Agile is a plus.
+- Familiarity with Python is an advantage.
+- Familiarity with Statistics is an advantage.
+- Snowflake is a plus.",Data Warehousing|ETL|Tableau|Data Visualization|Excel|Data Modeling,Agile|Python|Statistics|Snowflake,True
+SYN-009,Business Intelligence Analyst,Harbor Analytics Co (synthetic),Remote (EMEA),Internship,"Business Intelligence Analyst at Harbor Analytics Co (synthetic)
+
+About the role
+Own the reporting layer that managers use to run the business.
+
+Responsibilities:
+- Gather reporting requirements from finance and operations.
+- Validate numbers against source systems before every release.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Hands-on experience with Tableau.
+- Practical experience using SQL on real projects.
+- Practical experience using Data Warehousing on real projects.
+- Hands-on experience with Data Visualization.
+- Strong working knowledge of Excel.
+
+Nice to have:
+- Agile is a plus.
+- Familiarity with Azure is an advantage.
+- Experience with Snowflake is a plus.
+- Experience with Python is a plus.",Tableau|SQL|Data Warehousing|Data Visualization|Excel,Agile|Azure|Snowflake|Python,True
+SYN-010,Business Intelligence Analyst,Crescent Cloud Systems (synthetic),"Lahore, Pakistan",Full-time,"Business Intelligence Analyst at Crescent Cloud Systems (synthetic)
+
+About the role
+Own the reporting layer that managers use to run the business.
+
+Responsibilities:
+- Validate numbers against source systems before every release.
+- Design report layouts that executives can read in one minute.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in Power BI.
+- Practical experience using SQL on real projects.
+- Hands-on experience with Communication.
+- Strong working knowledge of Data Modeling.
+- Practical experience using Excel on real projects.
+- Solid understanding of ETL.
+- Strong working knowledge of Tableau.
+- Strong working knowledge of Data Warehousing.
+
+Nice to have:
+- Familiarity with Statistics is an advantage.
+- Familiarity with Agile is an advantage.",Power BI|SQL|Communication|Data Modeling|Excel|ETL|Tableau|Data Warehousing,Statistics|Agile,True
+SYN-011,Business Intelligence Analyst,Northwind Analytics (synthetic),"Riyadh, Saudi Arabia",Full-time,"Business Intelligence Analyst at Northwind Analytics (synthetic)
+
+About the role
+Own the reporting layer that managers use to run the business.
+
+Responsibilities:
+- Validate numbers against source systems before every release.
+- Gather reporting requirements from finance and operations.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Practical experience using Excel on real projects.
+- Proficiency in ETL.
+- Practical experience using Data Modeling on real projects.
+- Solid understanding of Data Visualization.
+- Practical experience using SQL on real projects.
+- Hands-on experience with Tableau.
+
+Nice to have:
+- Azure is a plus.
+- Experience with Agile is a plus.",Excel|ETL|Data Modeling|Data Visualization|SQL|Tableau,Azure|Agile,True
+SYN-012,Business Intelligence Analyst,Crescent Cloud Systems (synthetic),"Karachi, Pakistan",Internship,"Business Intelligence Analyst at Crescent Cloud Systems (synthetic)
+
+About the role
+Own the reporting layer that managers use to run the business.
+
+Responsibilities:
+- Design report layouts that executives can read in one minute.
+- Gather reporting requirements from finance and operations.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Hands-on experience with Tableau.
+- Practical experience using Power BI on real projects.
+- Strong working knowledge of Data Visualization.
+- Solid understanding of Data Warehousing.
+- Hands-on experience with Data Modeling.
+
+Nice to have:
+- Familiarity with Statistics is an advantage.
+- Familiarity with Azure is an advantage.
+- Python is a plus.
+- Familiarity with Snowflake is an advantage.",Tableau|Power BI|Data Visualization|Data Warehousing|Data Modeling,Statistics|Azure|Python|Snowflake,True
+SYN-013,Data Engineer,Bluebird Data Labs (synthetic),"Riyadh, Saudi Arabia",Contract,"Data Engineer at Bluebird Data Labs (synthetic)
+
+About the role
+Build reliable systems that move and prepare data for analysts and models.
+
+Responsibilities:
+- Keep data flowing on schedule and fix failures quickly.
+- Improve the speed and cost of existing jobs.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Spark.
+- Solid understanding of Airflow.
+- Strong working knowledge of Data Warehousing.
+- Strong working knowledge of SQL.
+- Solid understanding of ETL.
+- Hands-on experience with PostgreSQL.
+- Solid understanding of Git.
+
+Nice to have:
+- Experience with Snowflake is a plus.
+- Terraform is a plus.
+- Experience with Scala is a plus.
+- Kubernetes is a plus.",Spark|Airflow|Data Warehousing|SQL|ETL|PostgreSQL|Git,Snowflake|Terraform|Scala|Kubernetes,True
+SYN-014,Data Engineer,Falcon Insight Group (synthetic),"Dubai, UAE",Contract,"Data Engineer at Falcon Insight Group (synthetic)
+
+About the role
+Build reliable systems that move and prepare data for analysts and models.
+
+Responsibilities:
+- Keep data flowing on schedule and fix failures quickly.
+- Document datasets so other teams can trust them.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of ETL.
+- Hands-on experience with Docker.
+- Proficiency in Spark.
+- Proficiency in PostgreSQL.
+- Solid understanding of Data Warehousing.
+- Hands-on experience with Git.
+- Proficiency in Python.
+
+Nice to have:
+- Databricks is a plus.
+- Familiarity with Terraform is an advantage.
+- Familiarity with AWS is an advantage.
+- Experience with Scala is a plus.",ETL|Docker|Spark|PostgreSQL|Data Warehousing|Git|Python,Databricks|Terraform|AWS|Scala,True
+SYN-015,Data Engineer,Summit Data Works (synthetic),"Islamabad, Pakistan",Internship,"Data Engineer at Summit Data Works (synthetic)
+
+About the role
+Build reliable systems that move and prepare data for analysts and models.
+
+Responsibilities:
+- Document datasets so other teams can trust them.
+- Improve the speed and cost of existing jobs.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of SQL.
+- Strong working knowledge of Git.
+- Strong working knowledge of Spark.
+- Strong working knowledge of Python.
+- Hands-on experience with PostgreSQL.
+
+Nice to have:
+- Familiarity with Kubernetes is an advantage.
+- Terraform is a plus.
+- Experience with Snowflake is a plus.",SQL|Git|Spark|Python|PostgreSQL,Kubernetes|Terraform|Snowflake,True
+SYN-016,Data Engineer,Bluebird Data Labs (synthetic),Remote,Internship,"Data Engineer at Bluebird Data Labs (synthetic)
+
+About the role
+Build reliable systems that move and prepare data for analysts and models.
+
+Responsibilities:
+- Improve the speed and cost of existing jobs.
+- Document datasets so other teams can trust them.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Python.
+- Hands-on experience with Spark.
+- Hands-on experience with Data Warehousing.
+- Hands-on experience with Git.
+- Hands-on experience with Kafka.
+- Practical experience using ETL on real projects.
+
+Nice to have:
+- Snowflake is a plus.
+- Kubernetes is a plus.",Python|Spark|Data Warehousing|Git|Kafka|ETL,Snowflake|Kubernetes,True
+SYN-017,Data Engineer,Meridian Tech Partners (synthetic),Remote,Internship,"Data Engineer at Meridian Tech Partners (synthetic)
+
+About the role
+Build reliable systems that move and prepare data for analysts and models.
+
+Responsibilities:
+- Improve the speed and cost of existing jobs.
+- Keep data flowing on schedule and fix failures quickly.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Hands-on experience with Spark.
+- Strong working knowledge of ETL.
+- Hands-on experience with SQL.
+- Practical experience using Airflow on real projects.
+- Proficiency in Python.
+- Proficiency in Git.
+
+Nice to have:
+- Kubernetes is a plus.
+- Experience with Scala is a plus.",Spark|ETL|SQL|Airflow|Python|Git,Kubernetes|Scala,True
+SYN-018,Data Engineer,Meridian Tech Partners (synthetic),Remote (EMEA),Full-time,"Data Engineer at Meridian Tech Partners (synthetic)
+
+About the role
+Build reliable systems that move and prepare data for analysts and models.
+
+Responsibilities:
+- Document datasets so other teams can trust them.
+- Improve the speed and cost of existing jobs.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Practical experience using Python on real projects.
+- Solid understanding of SQL.
+- Solid understanding of Spark.
+- Strong working knowledge of PostgreSQL.
+- Practical experience using Docker on real projects.
+- Solid understanding of ETL.
+- Hands-on experience with Kafka.
+
+Nice to have:
+- Experience with Databricks is a plus.
+- Scala is a plus.",Python|SQL|Spark|PostgreSQL|Docker|ETL|Kafka,Databricks|Scala,True
+SYN-019,Platform Data Engineer,Lotus Digital Works (synthetic),"Jeddah, Saudi Arabia",Internship,"Platform Data Engineer at Lotus Digital Works (synthetic)
+
+About the role
+Process very large datasets on distributed clusters.
+
+Responsibilities:
+- Monitor cluster health and capacity.
+- Support analysts who query very large tables.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in Scala.
+- Solid understanding of SQL.
+- Hands-on experience with Hadoop.
+- Hands-on experience with Airflow.
+- Practical experience using Kafka on real projects.
+- Practical experience using Python on real projects.
+
+Nice to have:
+- Familiarity with AWS is an advantage.
+- Familiarity with Kubernetes is an advantage.
+- Databricks is a plus.
+- Familiarity with Flink is an advantage.",Scala|SQL|Hadoop|Airflow|Kafka|Python,AWS|Kubernetes|Databricks|Flink,True
+SYN-020,Platform Data Engineer,Summit Data Works (synthetic),Remote,Full-time,"Platform Data Engineer at Summit Data Works (synthetic)
+
+About the role
+Process very large datasets on distributed clusters.
+
+Responsibilities:
+- Support analysts who query very large tables.
+- Tune long-running jobs that process terabytes of data.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Python.
+- Practical experience using Airflow on real projects.
+- Hands-on experience with Spark.
+- Strong working knowledge of Hive.
+- Proficiency in Linux.
+
+Nice to have:
+- Familiarity with Java is an advantage.
+- Familiarity with Kubernetes is an advantage.
+- Familiarity with Flink is an advantage.
+- Familiarity with Docker is an advantage.",Python|Airflow|Spark|Hive|Linux,Java|Kubernetes|Flink|Docker,True
+SYN-021,Platform Data Engineer,Harbor Analytics Co (synthetic),"Lahore, Pakistan",Full-time,"Platform Data Engineer at Harbor Analytics Co (synthetic)
+
+About the role
+Process very large datasets on distributed clusters.
+
+Responsibilities:
+- Tune long-running jobs that process terabytes of data.
+- Monitor cluster health and capacity.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Practical experience using Python on real projects.
+- Solid understanding of Hive.
+- Hands-on experience with SQL.
+- Practical experience using Spark on real projects.
+- Practical experience using Scala on real projects.
+- Practical experience using Hadoop on real projects.
+
+Nice to have:
+- Docker is a plus.
+- Flink is a plus.",Python|Hive|SQL|Spark|Scala|Hadoop,Docker|Flink,True
+SYN-022,Platform Data Engineer,Summit Data Works (synthetic),"Riyadh, Saudi Arabia",Contract,"Platform Data Engineer at Summit Data Works (synthetic)
+
+About the role
+Process very large datasets on distributed clusters.
+
+Responsibilities:
+- Support analysts who query very large tables.
+- Monitor cluster health and capacity.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Practical experience using Hive on real projects.
+- Solid understanding of Kafka.
+- Solid understanding of SQL.
+- Practical experience using Scala on real projects.
+- Solid understanding of Python.
+- Practical experience using Airflow on real projects.
+- Hands-on experience with Hadoop.
+- Practical experience using Linux on real projects.
+
+Nice to have:
+- Experience with Flink is a plus.
+- Experience with Docker is a plus.",Hive|Kafka|SQL|Scala|Python|Airflow|Hadoop|Linux,Flink|Docker,True
+SYN-023,Platform Data Engineer,Crescent Cloud Systems (synthetic),Remote (EMEA),Internship,"Platform Data Engineer at Crescent Cloud Systems (synthetic)
+
+About the role
+Process very large datasets on distributed clusters.
+
+Responsibilities:
+- Tune long-running jobs that process terabytes of data.
+- Monitor cluster health and capacity.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Hands-on experience with Hive.
+- Hands-on experience with Python.
+- Strong working knowledge of Airflow.
+- Practical experience using Hadoop on real projects.
+- Practical experience using Kafka on real projects.
+- Proficiency in Spark.
+- Solid understanding of SQL.
+- Practical experience using Linux on real projects.
+
+Nice to have:
+- Experience with Databricks is a plus.
+- AWS is a plus.
+- Docker is a plus.",Hive|Python|Airflow|Hadoop|Kafka|Spark|SQL|Linux,Databricks|AWS|Docker,True
+SYN-024,Platform Data Engineer,Summit Data Works (synthetic),"Islamabad, Pakistan",Internship,"Platform Data Engineer at Summit Data Works (synthetic)
+
+About the role
+Process very large datasets on distributed clusters.
+
+Responsibilities:
+- Tune long-running jobs that process terabytes of data.
+- Monitor cluster health and capacity.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Practical experience using SQL on real projects.
+- Practical experience using Linux on real projects.
+- Strong working knowledge of Hadoop.
+- Practical experience using Kafka on real projects.
+- Proficiency in Scala.
+
+Nice to have:
+- Familiarity with Flink is an advantage.
+- Familiarity with Databricks is an advantage.
+- Experience with Docker is a plus.",SQL|Linux|Hadoop|Kafka|Scala,Flink|Databricks|Docker,True
+SYN-025,Applied AI Engineer,Summit Data Works (synthetic),"Jeddah, Saudi Arabia",Full-time,"Applied AI Engineer at Summit Data Works (synthetic)
+
+About the role
+Take predictive systems from notebook to production.
+
+Responsibilities:
+- Train, test and compare predictive approaches on real company data.
+- Monitor quality after launch and retrain when needed.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in Feature Engineering.
+- Practical experience using Statistics on real projects.
+- Proficiency in Python.
+- Hands-on experience with TensorFlow.
+- Practical experience using PyTorch on real projects.
+- Proficiency in Docker.
+
+Nice to have:
+- Experience with Kubernetes is a plus.
+- Experience with Airflow is a plus.
+- Experience with NLP is a plus.
+- Experience with Computer Vision is a plus.",Feature Engineering|Statistics|Python|TensorFlow|PyTorch|Docker,Kubernetes|Airflow|NLP|Computer Vision,True
+SYN-026,Applied AI Engineer,Harbor Analytics Co (synthetic),"Karachi, Pakistan",Full-time,"Applied AI Engineer at Harbor Analytics Co (synthetic)
+
+About the role
+Take predictive systems from notebook to production.
+
+Responsibilities:
+- Train, test and compare predictive approaches on real company data.
+- Monitor quality after launch and retrain when needed.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Hands-on experience with Python.
+- Practical experience using Statistics on real projects.
+- Strong working knowledge of Feature Engineering.
+- Solid understanding of Scikit-learn.
+- Hands-on experience with Machine Learning.
+- Practical experience using MLOps on real projects.
+- Proficiency in PyTorch.
+- Proficiency in TensorFlow.
+
+Nice to have:
+- AWS is a plus.
+- Familiarity with Kubernetes is an advantage.",Python|Statistics|Feature Engineering|Scikit-learn|Machine Learning|MLOps|PyTorch|TensorFlow,AWS|Kubernetes,True
+SYN-027,Applied AI Engineer,Falcon Insight Group (synthetic),Remote (EMEA),Internship,"Applied AI Engineer at Falcon Insight Group (synthetic)
+
+About the role
+Take predictive systems from notebook to production.
+
+Responsibilities:
+- Monitor quality after launch and retrain when needed.
+- Train, test and compare predictive approaches on real company data.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Machine Learning.
+- Strong working knowledge of Python.
+- Proficiency in PyTorch.
+- Solid understanding of MLOps.
+- Practical experience using Docker on real projects.
+- Proficiency in TensorFlow.
+- Strong working knowledge of Git.
+
+Nice to have:
+- Familiarity with AWS is an advantage.
+- Familiarity with Kubernetes is an advantage.
+- Experience with Airflow is a plus.
+- Computer Vision is a plus.",Machine Learning|Python|PyTorch|MLOps|Docker|TensorFlow|Git,AWS|Kubernetes|Airflow|Computer Vision,True
+SYN-028,Applied AI Engineer,Harbor Analytics Co (synthetic),"Dubai, UAE",Full-time,"Applied AI Engineer at Harbor Analytics Co (synthetic)
+
+About the role
+Take predictive systems from notebook to production.
+
+Responsibilities:
+- Monitor quality after launch and retrain when needed.
+- Work with engineers to ship reliable prediction services.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Practical experience using Git on real projects.
+- Practical experience using Docker on real projects.
+- Solid understanding of MLOps.
+- Proficiency in Statistics.
+- Proficiency in Machine Learning.
+
+Nice to have:
+- AWS is a plus.
+- Computer Vision is a plus.
+- Experience with Spark is a plus.",Git|Docker|MLOps|Statistics|Machine Learning,AWS|Computer Vision|Spark,True
+SYN-029,Applied AI Engineer,Meridian Tech Partners (synthetic),"Dubai, UAE",Internship,"Applied AI Engineer at Meridian Tech Partners (synthetic)
+
+About the role
+Take predictive systems from notebook to production.
+
+Responsibilities:
+- Work with engineers to ship reliable prediction services.
+- Monitor quality after launch and retrain when needed.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Feature Engineering.
+- Strong working knowledge of Git.
+- Solid understanding of Docker.
+- Hands-on experience with Python.
+- Strong working knowledge of TensorFlow.
+- Hands-on experience with Scikit-learn.
+- Practical experience using Machine Learning on real projects.
+- Practical experience using MLOps on real projects.
+
+Nice to have:
+- Familiarity with Spark is an advantage.
+- Airflow is a plus.",Feature Engineering|Git|Docker|Python|TensorFlow|Scikit-learn|Machine Learning|MLOps,Spark|Airflow,True
+SYN-030,Applied AI Engineer,Zenith Software Studio (synthetic),"Islamabad, Pakistan",Full-time,"Applied AI Engineer at Zenith Software Studio (synthetic)
+
+About the role
+Take predictive systems from notebook to production.
+
+Responsibilities:
+- Work with engineers to ship reliable prediction services.
+- Monitor quality after launch and retrain when needed.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Practical experience using Python on real projects.
+- Proficiency in Machine Learning.
+- Proficiency in PyTorch.
+- Proficiency in Statistics.
+- Hands-on experience with TensorFlow.
+- Strong working knowledge of Git.
+- Hands-on experience with Scikit-learn.
+- Proficiency in Docker.
+
+Nice to have:
+- Spark is a plus.
+- Familiarity with NLP is an advantage.
+- Familiarity with Airflow is an advantage.
+- Familiarity with AWS is an advantage.",Python|Machine Learning|PyTorch|Statistics|TensorFlow|Git|Scikit-learn|Docker,Spark|NLP|Airflow|AWS,True
+SYN-031,Data Scientist,Orchid Software House (synthetic),"Jeddah, Saudi Arabia",Full-time,"Data Scientist at Orchid Software House (synthetic)
+
+About the role
+Use data and experiments to guide product decisions.
+
+Responsibilities:
+- Run experiments and report results honestly, including uncertainty.
+- Frame vague business problems as measurable questions.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in A/B Testing.
+- Strong working knowledge of SQL.
+- Solid understanding of Data Visualization.
+- Hands-on experience with Communication.
+- Proficiency in Scikit-learn.
+- Strong working knowledge of Machine Learning.
+
+Nice to have:
+- Spark is a plus.
+- Familiarity with TensorFlow is an advantage.",A/B Testing|SQL|Data Visualization|Communication|Scikit-learn|Machine Learning,Spark|TensorFlow,True
+SYN-032,Data Scientist,Summit Data Works (synthetic),"Riyadh, Saudi Arabia",Full-time,"Data Scientist at Summit Data Works (synthetic)
+
+About the role
+Use data and experiments to guide product decisions.
+
+Responsibilities:
+- Frame vague business problems as measurable questions.
+- Present recommendations to non-technical audiences.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Practical experience using Statistics on real projects.
+- Practical experience using Python on real projects.
+- Strong working knowledge of SQL.
+- Solid understanding of Machine Learning.
+- Strong working knowledge of Pandas.
+- Hands-on experience with Scikit-learn.
+- Hands-on experience with Communication.
+- Solid understanding of Data Visualization.
+
+Nice to have:
+- Experience with NLP is a plus.
+- TensorFlow is a plus.",Statistics|Python|SQL|Machine Learning|Pandas|Scikit-learn|Communication|Data Visualization,NLP|TensorFlow,True
+SYN-033,Data Scientist,Orchid Software House (synthetic),"Jeddah, Saudi Arabia",Full-time,"Data Scientist at Orchid Software House (synthetic)
+
+About the role
+Use data and experiments to guide product decisions.
+
+Responsibilities:
+- Run experiments and report results honestly, including uncertainty.
+- Frame vague business problems as measurable questions.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Hands-on experience with Pandas.
+- Hands-on experience with Scikit-learn.
+- Hands-on experience with Communication.
+- Solid understanding of A/B Testing.
+- Strong working knowledge of Machine Learning.
+- Hands-on experience with Data Visualization.
+- Strong working knowledge of Statistics.
+- Practical experience using Python on real projects.
+
+Nice to have:
+- Experience with Deep Learning is a plus.
+- Familiarity with NLP is an advantage.
+- Familiarity with Spark is an advantage.
+- Experience with TensorFlow is a plus.",Pandas|Scikit-learn|Communication|A/B Testing|Machine Learning|Data Visualization|Statistics|Python,Deep Learning|NLP|Spark|TensorFlow,True
+SYN-034,Data Scientist,Lotus Digital Works (synthetic),"Jeddah, Saudi Arabia",Internship,"Data Scientist at Lotus Digital Works (synthetic)
+
+About the role
+Use data and experiments to guide product decisions.
+
+Responsibilities:
+- Frame vague business problems as measurable questions.
+- Present recommendations to non-technical audiences.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Hands-on experience with SQL.
+- Proficiency in Communication.
+- Hands-on experience with Data Visualization.
+- Strong working knowledge of Pandas.
+- Strong working knowledge of Python.
+- Hands-on experience with Statistics.
+
+Nice to have:
+- Experience with Deep Learning is a plus.
+- Familiarity with Git is an advantage.
+- Familiarity with Spark is an advantage.",SQL|Communication|Data Visualization|Pandas|Python|Statistics,Deep Learning|Git|Spark,True
+SYN-035,Data Scientist,Harbor Analytics Co (synthetic),"Lahore, Pakistan",Contract,"Data Scientist at Harbor Analytics Co (synthetic)
+
+About the role
+Use data and experiments to guide product decisions.
+
+Responsibilities:
+- Frame vague business problems as measurable questions.
+- Run experiments and report results honestly, including uncertainty.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in A/B Testing.
+- Solid understanding of SQL.
+- Proficiency in Data Visualization.
+- Strong working knowledge of Pandas.
+- Strong working knowledge of Machine Learning.
+
+Nice to have:
+- Git is a plus.
+- Familiarity with Tableau is an advantage.
+- Familiarity with Deep Learning is an advantage.
+- Familiarity with NLP is an advantage.",A/B Testing|SQL|Data Visualization|Pandas|Machine Learning,Git|Tableau|Deep Learning|NLP,True
+SYN-036,Data Scientist,Summit Data Works (synthetic),"Dubai, UAE",Contract,"Data Scientist at Summit Data Works (synthetic)
+
+About the role
+Use data and experiments to guide product decisions.
+
+Responsibilities:
+- Frame vague business problems as measurable questions.
+- Run experiments and report results honestly, including uncertainty.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in Machine Learning.
+- Practical experience using A/B Testing on real projects.
+- Proficiency in SQL.
+- Proficiency in Data Visualization.
+- Strong working knowledge of Pandas.
+
+Nice to have:
+- Spark is a plus.
+- Experience with Git is a plus.
+- Experience with Tableau is a plus.",Machine Learning|A/B Testing|SQL|Data Visualization|Pandas,Spark|Git|Tableau,True
+SYN-037,Backend Developer,Lotus Digital Works (synthetic),"Dubai, UAE",Internship,"Backend Developer at Lotus Digital Works (synthetic)
+
+About the role
+Build and maintain backend services for a growing product.
+
+Responsibilities:
+- Write clean, readable and well-reviewed code.
+- Take part in design discussions and code reviews.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Unit Testing.
+- Proficiency in Python.
+- Solid understanding of Docker.
+- Practical experience using Linux on real projects.
+- Practical experience using Flask on real projects.
+- Strong working knowledge of PostgreSQL.
+- Hands-on experience with REST API.
+- Proficiency in Git.
+
+Nice to have:
+- Familiarity with MongoDB is an advantage.
+- AWS is a plus.
+- Experience with Kubernetes is a plus.",Unit Testing|Python|Docker|Linux|Flask|PostgreSQL|REST API|Git,MongoDB|AWS|Kubernetes,True
+SYN-038,Backend Developer,Bluebird Data Labs (synthetic),"Jeddah, Saudi Arabia",Internship,"Backend Developer at Bluebird Data Labs (synthetic)
+
+About the role
+Build and maintain backend services for a growing product.
+
+Responsibilities:
+- Write clean, readable and well-reviewed code.
+- Take part in design discussions and code reviews.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Practical experience using Python on real projects.
+- Strong working knowledge of FastAPI.
+- Hands-on experience with Flask.
+- Practical experience using Docker on real projects.
+- Proficiency in REST API.
+
+Nice to have:
+- Familiarity with MongoDB is an advantage.
+- Familiarity with Kubernetes is an advantage.",Python|FastAPI|Flask|Docker|REST API,MongoDB|Kubernetes,True
+SYN-039,Backend Developer,Lotus Digital Works (synthetic),Remote (EMEA),Internship,"Backend Developer at Lotus Digital Works (synthetic)
+
+About the role
+Build and maintain backend services for a growing product.
+
+Responsibilities:
+- Fix bugs reported by users and improve performance.
+- Take part in design discussions and code reviews.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Strong working knowledge of Docker.
+- Proficiency in FastAPI.
+- Proficiency in Linux.
+- Solid understanding of REST API.
+- Solid understanding of Django.
+- Practical experience using Unit Testing on real projects.
+- Hands-on experience with PostgreSQL.
+- Practical experience using Flask on real projects.
+
+Nice to have:
+- Familiarity with Teamwork is an advantage.
+- Experience with Redis is a plus.
+- Experience with AWS is a plus.
+- Experience with MongoDB is a plus.",Docker|FastAPI|Linux|REST API|Django|Unit Testing|PostgreSQL|Flask,Teamwork|Redis|AWS|MongoDB,True
+SYN-040,Backend Developer,Crescent Cloud Systems (synthetic),"Islamabad, Pakistan",Internship,"Backend Developer at Crescent Cloud Systems (synthetic)
+
+About the role
+Build and maintain backend services for a growing product.
+
+Responsibilities:
+- Fix bugs reported by users and improve performance.
+- Write clean, readable and well-reviewed code.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Hands-on experience with FastAPI.
+- Solid understanding of Linux.
+- Solid understanding of Git.
+- Proficiency in Django.
+- Strong working knowledge of Unit Testing.
+- Practical experience using Python on real projects.
+- Strong working knowledge of Flask.
+
+Nice to have:
+- Familiarity with Kubernetes is an advantage.
+- Experience with Teamwork is a plus.
+- MongoDB is a plus.
+- Familiarity with CI/CD is an advantage.",FastAPI|Linux|Git|Django|Unit Testing|Python|Flask,Kubernetes|Teamwork|MongoDB|CI/CD,True
+SYN-041,Backend Developer,Summit Data Works (synthetic),"Karachi, Pakistan",Internship,"Backend Developer at Summit Data Works (synthetic)
+
+About the role
+Build and maintain backend services for a growing product.
+
+Responsibilities:
+- Take part in design discussions and code reviews.
+- Write clean, readable and well-reviewed code.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Django.
+- Strong working knowledge of Docker.
+- Hands-on experience with REST API.
+- Proficiency in Flask.
+- Hands-on experience with Unit Testing.
+- Strong working knowledge of FastAPI.
+
+Nice to have:
+- Experience with AWS is a plus.
+- CI/CD is a plus.
+- Familiarity with Kubernetes is an advantage.
+- Familiarity with Redis is an advantage.",Django|Docker|REST API|Flask|Unit Testing|FastAPI,AWS|CI/CD|Kubernetes|Redis,True
+SYN-042,Backend Developer,Orchid Software House (synthetic),"Riyadh, Saudi Arabia",Internship,"Backend Developer at Orchid Software House (synthetic)
+
+About the role
+Build and maintain backend services for a growing product.
+
+Responsibilities:
+- Take part in design discussions and code reviews.
+- Fix bugs reported by users and improve performance.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of REST API.
+- Hands-on experience with Python.
+- Hands-on experience with Unit Testing.
+- Hands-on experience with Flask.
+- Strong working knowledge of Docker.
+- Solid understanding of Git.
+
+Nice to have:
+- Experience with CI/CD is a plus.
+- Familiarity with Kubernetes is an advantage.
+- Familiarity with Redis is an advantage.",REST API|Python|Unit Testing|Flask|Docker|Git,CI/CD|Kubernetes|Redis,True
+SYN-043,Full Stack Developer,Bluebird Data Labs (synthetic),"Karachi, Pakistan",Full-time,"Full Stack Developer at Bluebird Data Labs (synthetic)
+
+About the role
+Deliver features from the database to the browser.
+
+Responsibilities:
+- Keep the application fast, secure and easy to maintain.
+- Review teammates' code and share knowledge.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of HTML.
+- Proficiency in Git.
+- Practical experience using CSS on real projects.
+- Proficiency in SQL.
+- Practical experience using Node.js on real projects.
+- Proficiency in JavaScript.
+
+Nice to have:
+- Next.js is a plus.
+- Experience with CI/CD is a plus.
+- Experience with AWS is a plus.",HTML|Git|CSS|SQL|Node.js|JavaScript,Next.js|CI/CD|AWS,True
+SYN-044,Full Stack Developer,Harbor Analytics Co (synthetic),"Islamabad, Pakistan",Full-time,"Full Stack Developer at Harbor Analytics Co (synthetic)
+
+About the role
+Deliver features from the database to the browser.
+
+Responsibilities:
+- Review teammates' code and share knowledge.
+- Keep the application fast, secure and easy to maintain.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in SQL.
+- Hands-on experience with MongoDB.
+- Solid understanding of CSS.
+- Proficiency in TypeScript.
+- Hands-on experience with Node.js.
+- Hands-on experience with JavaScript.
+- Solid understanding of HTML.
+- Proficiency in React.
+
+Nice to have:
+- Familiarity with CI/CD is an advantage.
+- Familiarity with Docker is an advantage.",SQL|MongoDB|CSS|TypeScript|Node.js|JavaScript|HTML|React,CI/CD|Docker,True
+SYN-045,Full Stack Developer,Lotus Digital Works (synthetic),"Jeddah, Saudi Arabia",Contract,"Full Stack Developer at Lotus Digital Works (synthetic)
+
+About the role
+Deliver features from the database to the browser.
+
+Responsibilities:
+- Turn product designs into working screens.
+- Review teammates' code and share knowledge.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Hands-on experience with CSS.
+- Solid understanding of Git.
+- Proficiency in JavaScript.
+- Solid understanding of SQL.
+- Solid understanding of Node.js.
+
+Nice to have:
+- Experience with AWS is a plus.
+- Docker is a plus.
+- Experience with Next.js is a plus.
+- Experience with Agile is a plus.",CSS|Git|JavaScript|SQL|Node.js,AWS|Docker|Next.js|Agile,True
+SYN-046,Full Stack Developer,Lotus Digital Works (synthetic),"Karachi, Pakistan",Full-time,"Full Stack Developer at Lotus Digital Works (synthetic)
+
+About the role
+Deliver features from the database to the browser.
+
+Responsibilities:
+- Turn product designs into working screens.
+- Keep the application fast, secure and easy to maintain.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Git.
+- Strong working knowledge of React.
+- Practical experience using Node.js on real projects.
+- Proficiency in REST API.
+- Proficiency in TypeScript.
+
+Nice to have:
+- Familiarity with Agile is an advantage.
+- Experience with Tailwind CSS is a plus.
+- Familiarity with Next.js is an advantage.
+- Experience with Docker is a plus.",Git|React|Node.js|REST API|TypeScript,Agile|Tailwind CSS|Next.js|Docker,True
+SYN-047,Full Stack Developer,Crescent Cloud Systems (synthetic),Remote (EMEA),Full-time,"Full Stack Developer at Crescent Cloud Systems (synthetic)
+
+About the role
+Deliver features from the database to the browser.
+
+Responsibilities:
+- Turn product designs into working screens.
+- Review teammates' code and share knowledge.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in JavaScript.
+- Practical experience using TypeScript on real projects.
+- Strong working knowledge of MongoDB.
+- Strong working knowledge of CSS.
+- Hands-on experience with React.
+- Solid understanding of SQL.
+- Hands-on experience with HTML.
+- Practical experience using Node.js on real projects.
+
+Nice to have:
+- Experience with Agile is a plus.
+- Experience with Tailwind CSS is a plus.
+- Familiarity with Docker is an advantage.",JavaScript|TypeScript|MongoDB|CSS|React|SQL|HTML|Node.js,Agile|Tailwind CSS|Docker,True
+SYN-048,Full Stack Developer,Meridian Tech Partners (synthetic),"Lahore, Pakistan",Full-time,"Full Stack Developer at Meridian Tech Partners (synthetic)
+
+About the role
+Deliver features from the database to the browser.
+
+Responsibilities:
+- Review teammates' code and share knowledge.
+- Keep the application fast, secure and easy to maintain.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Strong working knowledge of React.
+- Practical experience using Git on real projects.
+- Proficiency in REST API.
+- Hands-on experience with Node.js.
+- Strong working knowledge of JavaScript.
+- Practical experience using TypeScript on real projects.
+- Strong working knowledge of SQL.
+- Hands-on experience with HTML.
+
+Nice to have:
+- Familiarity with AWS is an advantage.
+- Familiarity with Next.js is an advantage.
+- Familiarity with Docker is an advantage.",React|Git|REST API|Node.js|JavaScript|TypeScript|SQL|HTML,AWS|Next.js|Docker,True
+SYN-049,DevOps Engineer,Orchid Software House (synthetic),"Lahore, Pakistan",Full-time,"DevOps Engineer at Orchid Software House (synthetic)
+
+About the role
+Make software delivery fast, safe and repeatable.
+
+Responsibilities:
+- Reduce the time between a code change and a safe release.
+- Be on call for production incidents on a rotating schedule.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Linux.
+- Strong working knowledge of CI/CD.
+- Proficiency in Git.
+- Hands-on experience with AWS.
+- Hands-on experience with Kubernetes.
+- Solid understanding of Docker.
+- Proficiency in Bash.
+
+Nice to have:
+- Elasticsearch is a plus.
+- GCP is a plus.",Linux|CI/CD|Git|AWS|Kubernetes|Docker|Bash,Elasticsearch|GCP,True
+SYN-050,DevOps Engineer,Crescent Cloud Systems (synthetic),"Karachi, Pakistan",Internship,"DevOps Engineer at Crescent Cloud Systems (synthetic)
+
+About the role
+Make software delivery fast, safe and repeatable.
+
+Responsibilities:
+- Write runbooks so incidents are solved faster.
+- Reduce the time between a code change and a safe release.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Solid understanding of Terraform.
+- Strong working knowledge of Linux.
+- Strong working knowledge of AWS.
+- Practical experience using CI/CD on real projects.
+- Practical experience using Docker on real projects.
+
+Nice to have:
+- Experience with GitHub is a plus.
+- Familiarity with Azure is an advantage.",Terraform|Linux|AWS|CI/CD|Docker,GitHub|Azure,True
+SYN-051,DevOps Engineer,Summit Data Works (synthetic),Remote,Internship,"DevOps Engineer at Summit Data Works (synthetic)
+
+About the role
+Make software delivery fast, safe and repeatable.
+
+Responsibilities:
+- Write runbooks so incidents are solved faster.
+- Reduce the time between a code change and a safe release.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Strong working knowledge of Docker.
+- Strong working knowledge of AWS.
+- Proficiency in Linux.
+- Solid understanding of Terraform.
+- Hands-on experience with Python.
+- Strong working knowledge of Bash.
+
+Nice to have:
+- Redis is a plus.
+- Experience with Problem Solving is a plus.
+- Familiarity with Azure is an advantage.",Docker|AWS|Linux|Terraform|Python|Bash,Redis|Problem Solving|Azure,True
+SYN-052,DevOps Engineer,Summit Data Works (synthetic),"Karachi, Pakistan",Full-time,"DevOps Engineer at Summit Data Works (synthetic)
+
+About the role
+Make software delivery fast, safe and repeatable.
+
+Responsibilities:
+- Reduce the time between a code change and a safe release.
+- Write runbooks so incidents are solved faster.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Strong working knowledge of Bash.
+- Proficiency in Git.
+- Practical experience using Docker on real projects.
+- Proficiency in Terraform.
+- Proficiency in Python.
+- Proficiency in Kubernetes.
+- Hands-on experience with Linux.
+
+Nice to have:
+- Familiarity with GCP is an advantage.
+- Experience with Redis is a plus.
+- GitHub is a plus.",Bash|Git|Docker|Terraform|Python|Kubernetes|Linux,GCP|Redis|GitHub,True
+SYN-053,DevOps Engineer,Harbor Analytics Co (synthetic),"Jeddah, Saudi Arabia",Contract,"DevOps Engineer at Harbor Analytics Co (synthetic)
+
+About the role
+Make software delivery fast, safe and repeatable.
+
+Responsibilities:
+- Write runbooks so incidents are solved faster.
+- Reduce the time between a code change and a safe release.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Strong working knowledge of Git.
+- Practical experience using Kubernetes on real projects.
+- Proficiency in Terraform.
+- Practical experience using Python on real projects.
+- Strong working knowledge of CI/CD.
+
+Nice to have:
+- Experience with Elasticsearch is a plus.
+- Familiarity with Azure is an advantage.",Git|Kubernetes|Terraform|Python|CI/CD,Elasticsearch|Azure,True
+SYN-054,DevOps Engineer,Zenith Software Studio (synthetic),"Lahore, Pakistan",Contract,"DevOps Engineer at Zenith Software Studio (synthetic)
+
+About the role
+Make software delivery fast, safe and repeatable.
+
+Responsibilities:
+- Reduce the time between a code change and a safe release.
+- Be on call for production incidents on a rotating schedule.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in Python.
+- Solid understanding of Linux.
+- Hands-on experience with Kubernetes.
+- Practical experience using Terraform on real projects.
+- Solid understanding of Bash.
+
+Nice to have:
+- Familiarity with Azure is an advantage.
+- Familiarity with GitHub is an advantage.",Python|Linux|Kubernetes|Terraform|Bash,Azure|GitHub,True
+SYN-055,Frontend Developer,Harbor Analytics Co (synthetic),"Dubai, UAE",Contract,"Frontend Developer at Harbor Analytics Co (synthetic)
+
+About the role
+Create fast, accessible and good-looking user interfaces.
+
+Responsibilities:
+- Measure and improve page speed.
+- Make pages work well on phones and small laptops.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Strong working knowledge of JavaScript.
+- Hands-on experience with REST API.
+- Strong working knowledge of Tailwind CSS.
+- Strong working knowledge of Git.
+- Solid understanding of TypeScript.
+
+Nice to have:
+- Next.js is a plus.
+- Experience with Vue is a plus.
+- Experience with Agile is a plus.",JavaScript|REST API|Tailwind CSS|Git|TypeScript,Next.js|Vue|Agile,True
+SYN-056,Frontend Developer,Northwind Analytics (synthetic),"Riyadh, Saudi Arabia",Full-time,"Frontend Developer at Northwind Analytics (synthetic)
+
+About the role
+Create fast, accessible and good-looking user interfaces.
+
+Responsibilities:
+- Measure and improve page speed.
+- Build reusable interface components.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in Tailwind CSS.
+- Practical experience using JavaScript on real projects.
+- Practical experience using REST API on real projects.
+- Practical experience using Git on real projects.
+- Solid understanding of HTML.
+- Practical experience using React on real projects.
+
+Nice to have:
+- Experience with Vue is a plus.
+- Experience with Agile is a plus.",Tailwind CSS|JavaScript|REST API|Git|HTML|React,Vue|Agile,True
+SYN-057,Frontend Developer,Harbor Analytics Co (synthetic),"Dubai, UAE",Internship,"Frontend Developer at Harbor Analytics Co (synthetic)
+
+About the role
+Create fast, accessible and good-looking user interfaces.
+
+Responsibilities:
+- Build reusable interface components.
+- Measure and improve page speed.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Hands-on experience with Git.
+- Proficiency in HTML.
+- Hands-on experience with JavaScript.
+- Hands-on experience with TypeScript.
+- Proficiency in React.
+- Proficiency in Tailwind CSS.
+- Proficiency in CSS.
+
+Nice to have:
+- Vue is a plus.
+- Unit Testing is a plus.",Git|HTML|JavaScript|TypeScript|React|Tailwind CSS|CSS,Vue|Unit Testing,True
+SYN-058,Frontend Developer,Northwind Analytics (synthetic),"Lahore, Pakistan",Contract,"Frontend Developer at Northwind Analytics (synthetic)
+
+About the role
+Create fast, accessible and good-looking user interfaces.
+
+Responsibilities:
+- Make pages work well on phones and small laptops.
+- Build reusable interface components.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Proficiency in JavaScript.
+- Solid understanding of React.
+- Practical experience using TypeScript on real projects.
+- Solid understanding of CSS.
+- Practical experience using REST API on real projects.
+- Practical experience using HTML on real projects.
+
+Nice to have:
+- Experience with Communication is a plus.
+- Next.js is a plus.
+- Experience with Unit Testing is a plus.",JavaScript|React|TypeScript|CSS|REST API|HTML,Communication|Next.js|Unit Testing,True
+SYN-059,Frontend Developer,Harbor Analytics Co (synthetic),"Karachi, Pakistan",Full-time,"Frontend Developer at Harbor Analytics Co (synthetic)
+
+About the role
+Create fast, accessible and good-looking user interfaces.
+
+Responsibilities:
+- Make pages work well on phones and small laptops.
+- Build reusable interface components.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Practical experience using REST API on real projects.
+- Proficiency in Git.
+- Proficiency in Tailwind CSS.
+- Hands-on experience with JavaScript.
+- Proficiency in HTML.
+- Hands-on experience with CSS.
+
+Nice to have:
+- Vue is a plus.
+- Familiarity with Unit Testing is an advantage.",REST API|Git|Tailwind CSS|JavaScript|HTML|CSS,Vue|Unit Testing,True
+SYN-060,Frontend Developer,Bluebird Data Labs (synthetic),"Dubai, UAE",Full-time,"Frontend Developer at Bluebird Data Labs (synthetic)
+
+About the role
+Create fast, accessible and good-looking user interfaces.
+
+Responsibilities:
+- Build reusable interface components.
+- Make pages work well on phones and small laptops.
+
+Requirements:
+- Bachelor's degree in Computer Science, IT or a related field.
+- Practical experience using Tailwind CSS on real projects.
+- Solid understanding of REST API.
+- Solid understanding of Git.
+- Practical experience using CSS on real projects.
+- Solid understanding of TypeScript.
+- Solid understanding of HTML.
+- Proficiency in JavaScript.
+
+Nice to have:
+- Familiarity with Vue is an advantage.
+- Experience with Communication is a plus.
+- Agile is a plus.",Tailwind CSS|REST API|Git|CSS|TypeScript|HTML|JavaScript,Vue|Communication|Agile,True

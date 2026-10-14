@@ -1,0 +1,98 @@
+skill,category,aliases,co_occurring_skills,sample_jobs_requiring
+Python,Programming,python3|python programming,SQL|Git|Docker|Statistics|Spark,30
+Java,Programming,core java,,0
+JavaScript,Programming,js|ecmascript|es6,HTML|Git|CSS|TypeScript|React,11
+TypeScript,Programming,,JavaScript|HTML|React|CSS|Git,8
+C++,Programming,cpp,,0
+C#,Programming,c sharp,,0
+R,Programming,R programming|rstudio|r language,,0
+Scala,Programming,,SQL|Hadoop|Kafka|Python|Airflow,4
+Go,Programming,golang,,0
+PHP,Programming,,,0
+Kotlin,Programming,,,0
+Bash,Programming,shell scripting|bash scripting|shell script,Linux|Kubernetes|Docker|Terraform|Python,4
+MATLAB,Programming,,,0
+Excel,Data & Analytics,ms excel|microsoft excel|advanced excel|excel formulas|vlookup|pivot tables|pivot table,Tableau|SQL|Data Visualization|Power BI|ETL,9
+Power BI,Data & Analytics,powerbi|power-bi|dax,Tableau|Excel|SQL|Data Visualization|Data Analysis,7
+Tableau,Data & Analytics,,Data Visualization|Excel|SQL|Power BI|ETL,11
+Looker,Data & Analytics,looker studio|data studio,,0
+Pandas,Data & Analytics,,Data Visualization|Statistics|Python|SQL|Machine Learning,8
+NumPy,Data & Analytics,,,0
+Matplotlib,Data & Analytics,,,0
+Seaborn,Data & Analytics,,,0
+Data Analysis,Data & Analytics,data analytics|analyzing data|analysing data|exploratory data analysis|EDA,Tableau|Data Visualization|Excel|Power BI|Python,4
+Data Visualization,Data & Analytics,data visualisation|dashboards|dashboarding|data viz,SQL|Tableau|Excel|Pandas|Power BI,15
+Statistics,Data & Analytics,statistical analysis|statistical|hypothesis testing|probability,Python|SQL|Data Visualization|Pandas|Machine Learning,11
+Data Cleaning,Data & Analytics,data cleansing|data wrangling|data preprocessing|data preparation,Data Analysis|Power BI|Excel|Statistics|Python,3
+ETL,Data & Analytics,data pipelines|data pipeline|etl pipelines|elt,SQL|Data Warehousing|Spark|Excel|Tableau,9
+Data Modeling,Data & Analytics,data modelling|dimensional modeling|star schema,Tableau|Data Warehousing|ETL|Data Visualization|Excel,4
+Data Warehousing,Data & Analytics,data warehouse|data warehouses|dwh,ETL|Tableau|Data Visualization|Excel|Data Modeling,7
+A/B Testing,Data & Analytics,ab testing|a/b tests|split testing,Data Visualization|Machine Learning|SQL|Pandas|Communication,4
+Google Analytics,Data & Analytics,,,0
+SQL,Databases,sql queries|t-sql|tsql|pl/sql|structured query language,Python|Data Visualization|Tableau|Excel|ETL,27
+MySQL,Databases,,,0
+PostgreSQL,Databases,postgres,Spark|Git|Docker|Python|SQL,6
+SQLite,Databases,,,0
+SQL Server,Databases,mssql|microsoft sql server|ms sql,,0
+Oracle,Databases,oracle database|oracle db,,0
+MongoDB,Databases,mongo db,SQL|CSS|TypeScript|Node.js|JavaScript,2
+NoSQL,Databases,no-sql,,0
+Redis,Databases,,,0
+Elasticsearch,Databases,elastic search,,0
+Hadoop,Big Data,hdfs|mapreduce|map reduce,SQL|Scala|Kafka|Python|Airflow,5
+Spark,Big Data,apache spark|pyspark,Python|SQL|ETL|Git|Airflow,9
+Kafka,Big Data,apache kafka,Python|SQL|Hadoop|Spark|Scala,6
+Hive,Big Data,apache hive|hiveql,Python|Airflow|Spark|Linux|SQL,4
+Airflow,Big Data,apache airflow,SQL|Python|Spark|Hadoop|Kafka,6
+Databricks,Big Data,,,0
+Snowflake,Big Data,,,0
+Big Data,Big Data,big-data|large-scale data|distributed computing|distributed systems,,0
+Flink,Big Data,apache flink,,0
+Machine Learning,Machine Learning & AI,ML|ml models|machine-learning|predictive modeling|predictive modelling,Python|Scikit-learn|Statistics|Data Visualization|MLOps,10
+Deep Learning,Machine Learning & AI,neural networks|neural network,,0
+NLP,Machine Learning & AI,natural language processing|text mining,,0
+Scikit-learn,Machine Learning & AI,scikit learn|sklearn,Machine Learning|Python|Statistics|TensorFlow|Data Visualization,6
+TensorFlow,Machine Learning & AI,tensor flow,Python|PyTorch|Docker|Machine Learning|Feature Engineering,5
+PyTorch,Machine Learning & AI,,Python|TensorFlow|Statistics|Docker|Machine Learning,4
+Keras,Machine Learning & AI,,,0
+Computer Vision,Machine Learning & AI,image processing|opencv,,0
+Generative AI,Machine Learning & AI,genai|gen ai|llm|llms|large language models|prompt engineering,,0
+Feature Engineering,Machine Learning & AI,,Python|TensorFlow|Statistics|PyTorch|Docker,3
+MLOps,Machine Learning & AI,model deployment|model serving,Machine Learning|Python|TensorFlow|Docker|Git,4
+AWS,Cloud & DevOps,amazon web services|ec2|redshift,Linux|Docker|CI/CD|Bash|Terraform,3
+Azure,Cloud & DevOps,microsoft azure,,0
+GCP,Cloud & DevOps,google cloud|google cloud platform|bigquery,,0
+Docker,Cloud & DevOps,containers|containerization|containerisation,Python|Git|Linux|Flask|REST API,16
+Kubernetes,Cloud & DevOps,k8s,Linux|Git|Bash|Terraform|Python,4
+Git,Cloud & DevOps,version control|git flow|gitflow,Python|Docker|REST API|JavaScript|SQL,24
+GitHub,Cloud & DevOps,gitlab|bitbucket,,0
+CI/CD,Cloud & DevOps,continuous integration|continuous delivery|continuous deployment|github actions|jenkins,Linux|Git|AWS|Kubernetes|Docker,3
+Linux,Cloud & DevOps,unix|ubuntu,Python|Docker|Git|Bash|Terraform,12
+Terraform,Cloud & DevOps,infrastructure as code,Linux|Python|Docker|Bash|Kubernetes,5
+HTML,Web Development,html5,JavaScript|CSS|Git|TypeScript|React,9
+CSS,Web Development,css3,JavaScript|HTML|Git|TypeScript|SQL,8
+React,Web Development,reactjs|react.js,TypeScript|JavaScript|HTML|CSS|Node.js,7
+Angular,Web Development,angularjs,,0
+Vue,Web Development,vue.js|vuejs,,0
+Node.js,Web Development,nodejs|node js,SQL|JavaScript|HTML|Git|CSS,6
+Django,Web Development,,FastAPI|Unit Testing|Flask|Docker|Linux,3
+Flask,Web Development,,Unit Testing|Docker|REST API|Python|FastAPI,6
+FastAPI,Web Development,fast api,Flask|Docker|REST API|Django|Unit Testing,4
+Streamlit,Web Development,,,0
+REST API,Web Development,rest apis|restful api|restful apis|restful services|api development,Git|JavaScript|Docker|Flask|TypeScript,12
+Tailwind CSS,Web Development,tailwind|tailwindcss,JavaScript|Git|REST API|HTML|TypeScript,5
+Bootstrap,Web Development,,,0
+Next.js,Web Development,nextjs,,0
+Agile,Tools & Practices,agile methodology|agile methodologies,,0
+Scrum,Tools & Practices,,,0
+Jira,Tools & Practices,,,0
+Unit Testing,Tools & Practices,pytest|unit tests|test-driven development|TDD,Flask|Docker|REST API|Python|Linux,5
+OOP,Tools & Practices,object oriented programming|object-oriented programming|object oriented design,,0
+Data Structures,Tools & Practices,data structures and algorithms|algorithms,,0
+Communication,Soft Skills,communication skills|written communication|verbal communication,Data Visualization|SQL|Scikit-learn|Machine Learning|Statistics,6
+Teamwork,Soft Skills,team player|collaboration|collaborative|team work,,0
+Problem Solving,Soft Skills,problem-solving|analytical thinking|analytical skills,,0
+Leadership,Soft Skills,team leadership|mentoring,,0
+Critical Thinking,Soft Skills,,,0
+Time Management,Soft Skills,time-management,,0
+Presentation Skills,Soft Skills,presenting|public speaking|stakeholder management,,0
