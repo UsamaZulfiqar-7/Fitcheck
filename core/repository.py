@@ -22,6 +22,68 @@ def get_or_create_candidate(name: str) -> Candidate:
         return row
 
 
+def register_user(display_name: str, email: str, password_salt: str, password_hash: str) -> Candidate:
+    """Create a new email/password account. Raises ValueError if email already exists."""
+    email = email.strip().lower()
+    with session_scope() as s:
+        existing = s.scalar(select(Candidate).where(func.lower(Candidate.email) == email))
+        if existing is not None:
+            raise ValueError("An account with this email already exists.")
+        row = Candidate(
+            display_name=display_name.strip()[:120],
+            email=email,
+            auth_provider="email",
+            password_hash=password_hash,
+            password_salt=password_salt,
+        )
+        s.add(row)
+        s.flush()
+        return row
+
+
+def find_by_email(email: str) -> Candidate | None:
+    """Look up a candidate by email address (case-insensitive)."""
+    email = email.strip().lower()
+    with session_scope() as s:
+        return s.scalar(select(Candidate).where(func.lower(Candidate.email) == email))
+
+
+def find_by_google_id(google_id: str) -> Candidate | None:
+    """Look up a candidate by Google OAuth subject."""
+    with session_scope() as s:
+        return s.scalar(select(Candidate).where(Candidate.google_id == google_id))
+
+
+def upsert_google_user(google_id: str, email: str, display_name: str, avatar_url: str | None) -> Candidate:
+    """Find or create a candidate from Google OAuth data."""
+    email = email.strip().lower()
+    with session_scope() as s:
+        # 1. Try by google_id
+        row = s.scalar(select(Candidate).where(Candidate.google_id == google_id))
+        if row is None:
+            # 2. Try by email (link accounts)
+            row = s.scalar(select(Candidate).where(func.lower(Candidate.email) == email))
+        if row is None:
+            # 3. Create new - ensure unique display_name
+            base_name = (display_name or email.split("@")[0]).strip()[:120]
+            unique_name = base_name
+            suffix = 2
+            while s.scalar(select(Candidate).where(func.lower(Candidate.display_name) == unique_name.lower())):
+                unique_name = f"{base_name}{suffix}"
+                suffix += 1
+            row = Candidate(display_name=unique_name, email=email, auth_provider="google",
+                            google_id=google_id, avatar_url=avatar_url)
+            s.add(row)
+        else:
+            # Update Google ID and avatar
+            row.google_id = google_id
+            row.auth_provider = "google"
+            if avatar_url:
+                row.avatar_url = avatar_url
+        s.flush()
+        return row
+
+
 # ---- skills ------------------------------------------------------------------------------
 def _skill_ids(s, names, categories: dict | None = None) -> dict[str, int]:
     ids: dict[str, int] = {}

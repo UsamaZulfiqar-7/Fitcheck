@@ -3,6 +3,7 @@ import streamlit as st
 
 st.set_page_config(page_title="FitCheck", page_icon="🎯", layout="wide", initial_sidebar_state="expanded")
 
+from core import auth  # noqa: E402
 from ui import state, theme  # noqa: E402
 from ui.pages import (  # noqa: E402
     analysis,
@@ -11,6 +12,7 @@ from ui.pages import (  # noqa: E402
     gaps,
     home,
     learning,
+    login_page,
     progress,
     results,
     settings_page,
@@ -29,10 +31,64 @@ ROUTES = {
 }
 
 
+def _sidebar_user_info() -> None:
+    """Show logged-in user info and logout button in the sidebar."""
+    user = auth.current_user()
+    if not user:
+        return
+
+    avatar = user.get("avatar")
+    name = user.get("name", "User")
+    email = user.get("email", "")
+    provider = user.get("provider", "email")
+
+    provider_icon = "🔵" if provider == "google" else "📧"
+
+    with st.sidebar:
+        # User profile section
+        if avatar:
+            st.markdown(
+                f'<div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem;">'
+                f'<img src="{avatar}" width="36" height="36" style="border-radius:50%;border:2px solid rgba(96,165,250,0.5);">'
+                f'<div><div style="color:#fff;font-weight:700;font-size:0.9rem;">{name}</div>'
+                f'<div style="color:rgba(255,255,255,0.45);font-size:0.72rem;">{provider_icon} {email}</div></div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+        else:
+            st.markdown(
+                f'<div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem;">'
+                f'<div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#4F46E5);'
+                f'display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1rem;">'
+                f'{name[0].upper()}</div>'
+                f'<div><div style="color:#fff;font-weight:700;font-size:0.9rem;">{name}</div>'
+                f'<div style="color:rgba(255,255,255,0.45);font-size:0.72rem;">{provider_icon} {email}</div></div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+
+
 def main() -> None:
+    # ── Authentication gate ────────────────────────────────────────────────
+    # First, let the login page handle Google OAuth callbacks (even before auth check)
+    login_page.render()
+
+    if not auth.is_authenticated():
+        st.stop()  # Stop rendering the rest of the app until user logs in
+        return
+
+    # ── Authenticated app ──────────────────────────────────────────────────
     theme.inject_css()
     state.init()
-    # jump requested by a button callback (must be applied before the radio widget is created)
+
+    # Auto-set candidate from auth session
+    user = auth.current_user()
+    if user and st.session_state.get("cand_name") != user["name"]:
+        try:
+            state.switch_candidate(user["name"])
+        except Exception:
+            pass
+
     target = st.session_state.pop("nav_target", None)
     if target in ROUTES:
         st.session_state["nav"] = target
@@ -47,18 +103,22 @@ def main() -> None:
             unsafe_allow_html=True,
         )
         st.caption("Enterprise Resume & Skill Gap Analyzer")
-        name = st.text_input("Your profile name", value=st.session_state.get("cand_name") or "Guest", key="profile_name",
-                             help="Your progress is saved under this name, so you can continue after restarting.")
-        try:
-            state.switch_candidate(name)
-        except Exception as exc:
-            st.error(f"Database error: {exc}")
-            st.stop()
+
+        # Show user profile info
+        _sidebar_user_info()
+
+        st.divider()
         st.radio("Navigation", list(ROUTES), key="nav", label_visibility="collapsed")
         st.divider()
         st.caption("Workflow")
         for label, done in state.workflow_status():
             st.markdown(f"{'✅' if done else '⬜'} {label}")
+
+        st.divider()
+        # Logout button
+        if st.button("🚪 Sign Out", key="logout_btn", use_container_width=True):
+            auth.logout()
+            st.rerun()
 
     try:
         ROUTES[st.session_state["nav"]]()

@@ -32,6 +32,12 @@ class Candidate(Base):
     __tablename__ = "candidates"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     display_name: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
+    email: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    auth_provider: Mapped[str] = mapped_column(String(40), default="local", nullable=False)
+    password_hash: Mapped[str | None] = mapped_column(String(255), nullable=True)
+    password_salt: Mapped[str | None] = mapped_column(String(64), nullable=True)   # hex salt for email/password auth
+    google_id: Mapped[str | None] = mapped_column(String(200), nullable=True)       # Google OAuth subject
+    avatar_url: Mapped[str | None] = mapped_column(String(600), nullable=True)      # Google profile picture URL
     created_at: Mapped[dt.datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
 
 
