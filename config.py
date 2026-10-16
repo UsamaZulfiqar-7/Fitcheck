@@ -60,6 +60,7 @@ MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "").strip()      # e.g. localhost:9
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "").strip()
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "").strip()
 MINIO_BUCKET = os.getenv("MINIO_BUCKET", "fitcheck")
+MINIO_REFERENCE_BUCKET = os.getenv("MINIO_REFERENCE_BUCKET", "fitcheck-reference-data")
 MINIO_SECURE = _bool("MINIO_SECURE", False)
 
 APP_NAME = "FitCheck"

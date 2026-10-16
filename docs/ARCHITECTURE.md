@@ -9,7 +9,7 @@
 | Presentation | `app.py`, `ui/pages/*.py`, `ui/theme.py`, `ui/charts.py`, `ui/state.py` | Streamlit pages, navigation, charts, session state |
 | Pipeline | `core/pipeline.py` | Orchestrates the stages: analyse, add a skill to the CV, save an edited CV |
 | Ingestion & extraction | `core/extraction.py`, `core/storage.py` | Validates uploads, reads PDF/DOCX/TXT/images (OCR fallback), keeps raw files |
-| Skill intelligence | `core/taxonomy.py`, `core/skills.py` | Rule-based extraction, normalisation, required/preferred detection |
+| Skill intelligence | `core/taxonomy.py`, `core/skills.py`, `core/onet.py` | Rule-based extraction, normalisation, required/preferred detection, optional O*NET occupation context |
 | Scoring | `core/matching.py` | Skill match, TF-IDF cosine similarity, optional semantic similarity, weighted final score, score explanation |
 | Learning | `core/learning_content.py`, `core/content/*.py`, `core/ai.py` | Curated lessons, starter paths, practice questions, resources, optional AI notes |
 | CV | `core/cv_builder.py` | Parse CV sections, safely add a skill, export DOCX/PDF |
@@ -28,6 +28,7 @@
 8. **Learning progress storage** - topic completion and path status in the database.
 9. **Updated CV generation** - after explicit confirmation a new CV version is stored; the original is never changed.
 10. **Final match score and report** - the score is recalculated for the new version; a PDF report is produced.
+11. **Optional occupation context** - imported O*NET 31.0 occupation descriptions/tasks are compared with the user's job text to show advisory related occupation profiles in Skill Gap Analysis. This never changes the score.
 
 No distributed processing (Spark, Hadoop, Kafka) is used in the application itself. These technologies are the *subject of the
 learning content* the application teaches.
@@ -61,6 +62,7 @@ Ready-made DDL: `db/schema_postgres.sql` and `db/schema_sqlite.sql`.
 * **Offline by default.** Taxonomy, lessons and TF-IDF need no internet or API key. AI, MinIO and sentence-transformers are optional.
 * **Graceful degradation.** PostgreSQL unreachable -> SQLite; no Tesseract -> clear install message; AI missing -> built-in content.
 * **Transparent score.** The formula is shown with the real numbers on the Results page.
+* **O*NET is reference context only.** Its occupation tasks and skill examples are not job advertisements and are never counted as requirements for the user's actual posting.
 
 ## Testing
 

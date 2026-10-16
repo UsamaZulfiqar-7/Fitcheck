@@ -15,11 +15,12 @@ Built with Python + Streamlit. Runs fully offline: **no AI key and no cloud serv
 | Upload | CV: PDF, DOCX, TXT. Job: typed text, PDF, JPG/JPEG/PNG (OCR), TXT, or a synthetic sample job |
 | Review | Extracted text is shown and editable before analysis (the original extraction is kept unchanged in the database) |
 | Score | Final score /100 = 70% skill match + 30% text similarity (TF-IDF cosine). Weights are configurable. Labelled as an **estimate** |
-| Gap analysis | Matched, missing required, missing preferred, additional skills + charts + "why this skill matters" taken from the job text |
+| Gap analysis | Matched, missing required, missing preferred and additional skills + charts + "why this skill matters"; optional O*NET 31.0 occupation context is advisory and does not change the score |
 | Learning Center | Per missing skill: overview, 5-stage roadmap, written lessons with examples/outputs, practice questions with hints and revealable solutions, free resources, progress saved in the database |
 | Add to CV | "I've Learned This Skill — Add to My CV": explicit confirmation, section choice, editable wording, before/after preview, duplicate check, new CV version, old vs new score with explanation |
 | Downloads | Updated CV (DOCX / PDF), match report (PDF), original uploaded file |
 | Database | PostgreSQL (primary) with automatic SQLite fallback |
+| Object storage | Private MinIO/S3 buckets for user uploads and O*NET reference archive; O*NET profiles can be imported for advisory occupation suggestions |
 
 Pages: Home Dashboard, Resume & Job Analysis, Match Results, Skill Gap Analysis, Personalized Learning Center,
 My Learning Progress, Updated CV & Downloads, Settings.

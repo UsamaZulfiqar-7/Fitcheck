@@ -1,5 +1,6 @@
 """Skill Gap Analysis."""
 import csv
+from functools import lru_cache
 
 import pandas as pd
 import streamlit as st
@@ -7,11 +8,12 @@ import streamlit as st
 import config
 from core import learning_content as lc
 from core.matching import category_counts
+from core.onet import recommend_occupations
 from core.skills import skill_category
 from ui import charts, state, theme
 
 
-@st.cache_data(show_spinner=False)
+@lru_cache(maxsize=1)
 def _demand() -> dict[str, int]:
     try:
         with open(config.SKILL_MAPPINGS_CSV, newline="", encoding="utf-8") as fh:
@@ -47,6 +49,42 @@ def render() -> None:
         return
     match, resume, job = ctx
     d = match.details
+    with st.expander("Occupation context from O*NET 31.0"):
+        st.caption(
+            "Advisory context based on occupation descriptions/tasks; it does not change your match score "
+            "or prove that a skill is required for this specific job."
+        )
+        occupation_matches = recommend_occupations(job.text)
+        if not occupation_matches:
+            st.info(
+                "O*NET profiles are not imported into the app database yet. "
+                "Run `python scripts/import_onet_reference.py` after MinIO is configured."
+            )
+        for profile in occupation_matches:
+            st.markdown(
+                f"**{profile['title']}** — O*NET {profile['onet_code']} · "
+                f"{profile['similarity']}% text similarity"
+            )
+            if profile["description"]:
+                st.caption(profile["description"])
+            if profile["essential_skills"]:
+                skills = ", ".join(
+                    f"{item['name']} ({item['importance']:g}/5)"
+                    for item in profile["essential_skills"]
+                )
+                st.write(f"**Common essential skills:** {skills}")
+            if profile["transferable_skills"]:
+                skills = ", ".join(
+                    f"{item['name']} ({item['importance']:g}/5)"
+                    for item in profile["transferable_skills"]
+                )
+                st.write(f"**Transferable skills:** {skills}")
+            software = [
+                item["name"] + (" (in demand)" if item["in_demand"] else " (hot technology)" if item["hot"] else "")
+                for item in profile["software_skills"]
+            ]
+            if software:
+                st.write(f"**Related software examples:** {', '.join(software)}")
     theme.kpi_row([("Matched", len(d["matched"]), "skills found in both", "good"),
                    ("Missing required", len(d["missing_required"]), "highest priority", "bad" if d["missing_required"] else "good"),
                    ("Missing preferred", len(d["missing_preferred"]), "nice to have", "warn" if d["missing_preferred"] else "good"),

@@ -8,3 +8,40 @@ They are not real vacancies and must not be presented as real market data.
 - `skill_mappings.csv`: skill taxonomy with aliases and how often each skill appears in the synthetic jobs.
 
 FitCheck does not need any real resume dataset: users upload their own resume.
+
+## Optional occupational reference data: O*NET 31.0
+
+FitCheck's rule-based skill matcher can be supplemented with the official O*NET 31.0
+occupational reference database. The downloaded text package includes occupation titles,
+essential/transferable skills, software skills, and task statements. It is reference data,
+not a collection of current job ads, resumes, or labelled resume/job match examples, and
+must not be described as a model training dataset.
+
+- Official download page: https://www.onetcenter.org/database.html
+- Official package: https://www.onetcenter.org/dl_files/database/db_31_0_text.zip
+- License and required attribution: https://www.onetcenter.org/license_db.html
+- The O*NET 31.0 database is generally licensed under CC BY 4.0; check the official
+  exceptions and preserve the version-specific attribution when redistributing or adapting it.
+
+Download to `data/reference/onet/31.0/db_31_0_text.zip`. This file is intentionally
+git-ignored. Run `python scripts/upload_reference_dataset.py` to upload it to the separate,
+private `MINIO_REFERENCE_BUCKET` (default `fitcheck-reference-data`). Keep this reference
+bucket separate from `MINIO_BUCKET`, which stores user-uploaded CV/job files. To import the
+archive from the private bucket into the application database, run
+`python scripts/import_onet_reference.py` after MinIO is configured.
+
+The Skill Gap Analysis page then shows advisory O*NET occupation profiles most similar to
+the user's own job description, including occupation tasks and reference skill/software
+examples. This context does not change the CV/job score or automatically add skills. The
+current score still uses the user's actual posting, rule-based skills, and the local
+synthetic postings as its TF-IDF background corpus. O*NET data is not a collection of current
+job ads, resumes, or labelled resume/job matches. Do not put resumes or private job data in
+a public bucket.
+
+For local MinIO AIStor development, request the no-cost single-node license from
+https://www.min.io/pricing (Get Started under Free), then save the downloaded license as
+`.local/minio/minio.license`. The license is ignored by Git. Set `MINIO_ENDPOINT=127.0.0.1:9000`,
+`MINIO_SECURE=false`, and the same local root credentials as the application access credentials
+in `.env`, then start the provided service with `docker compose up -d minio`. The console is at
+`http://localhost:9001`. The service binds to loopback only and stores objects in a named Docker
+volume. The default MinIO buckets are private; do not change them to public.

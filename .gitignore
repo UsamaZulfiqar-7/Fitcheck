@@ -5,6 +5,8 @@ __pycache__/
 .env
 data/fitcheck.db
 data/uploads/
+data/reference/onet/31.0/db_31_0_text.zip
+.local/minio/
 .pytest_cache/
 .streamlit/secrets.toml
 *.log

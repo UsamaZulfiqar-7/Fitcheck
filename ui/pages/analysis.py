@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+from functools import lru_cache
 
 import streamlit as st
 
@@ -12,7 +13,7 @@ from core.extraction import ExtractionError
 from ui import state, theme
 
 
-@st.cache_data(show_spinner=False)
+@lru_cache(maxsize=1)
 def sample_jobs() -> list[dict]:
     try:
         with open(config.SAMPLE_JOBS_CSV, newline="", encoding="utf-8") as fh:

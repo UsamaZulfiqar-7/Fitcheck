@@ -76,6 +76,19 @@ class Skill(Base):
     category: Mapped[str] = mapped_column(String(60), nullable=False, default="Other")
 
 
+class OnetOccupation(Base):
+    """Imported O*NET occupation reference profile; never user-provided resume data."""
+    __tablename__ = "onet_occupations"
+    onet_code: Mapped[str] = mapped_column(String(20), primary_key=True)
+    title: Mapped[str] = mapped_column(String(300), nullable=False)
+    description: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    task_statements: Mapped[list] = mapped_column(JSON, nullable=False, default=list)
+    essential_skills: Mapped[list] = mapped_column(JSON, nullable=False, default=list)
+    transferable_skills: Mapped[list] = mapped_column(JSON, nullable=False, default=list)
+    software_skills: Mapped[list] = mapped_column(JSON, nullable=False, default=list)
+    source_version: Mapped[str] = mapped_column(String(20), nullable=False, default="31.0")
+
+
 class ResumeSkill(Base):
     __tablename__ = "resume_skills"
     resume_id: Mapped[int] = mapped_column(ForeignKey("resumes.id", ondelete="CASCADE"), primary_key=True)
