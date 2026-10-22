@@ -4,7 +4,15 @@ Every value can be overridden through environment variables or a `.env` file
 (copy `.env.example` to `.env`).  Nothing here requires cloud services or an AI key.
 """
 import os
+import sys
 from pathlib import Path
+
+# Prevent Windows AppLocker policy block on pyarrow.lib DLL when sklearn imports it
+if "pyarrow" not in sys.modules:
+    try:
+        import pyarrow  # noqa: F401
+    except Exception:
+        sys.modules["pyarrow"] = None
 
 from dotenv import load_dotenv
 

@@ -138,12 +138,50 @@ def set_resume_skills(resume_id: int, names: list[str]) -> None:
             s.add(ResumeSkill(resume_id=resume_id, skill_id=sid))
 
 
+def get_resume_skills(resume_id: int) -> list[str]:
+    with session_scope() as s:
+        rows = s.scalars(
+            select(Skill.name)
+            .join(ResumeSkill, ResumeSkill.skill_id == Skill.id)
+            .where(ResumeSkill.resume_id == resume_id)
+            .order_by(Skill.name)
+        ).all()
+        return list(rows)
+
+
 def set_job_skills(job_id: int, importance: dict[str, str]) -> None:
     with session_scope() as s:
         ids = _skill_ids(s, list(importance))
         s.execute(delete(JobSkill).where(JobSkill.job_id == job_id))
         for name, sid in ids.items():
             s.add(JobSkill(job_id=job_id, skill_id=sid, importance=importance[name]))
+
+
+def get_job_skills(job_id: int) -> dict[str, str]:
+    with session_scope() as s:
+        rows = s.execute(
+            select(Skill.name, JobSkill.importance)
+            .join(Skill, Skill.id == JobSkill.skill_id)
+            .where(JobSkill.job_id == job_id)
+            .order_by(Skill.name)
+        ).all()
+        return {name: imp for name, imp in rows}
+
+
+def list_jobs(candidate_id: int | None = None, limit: int = 50) -> list[JobPosting]:
+    with session_scope() as s:
+        q = select(JobPosting)
+        if candidate_id is not None:
+            q = q.where(JobPosting.candidate_id == candidate_id)
+        return list(s.scalars(q.order_by(JobPosting.id.desc()).limit(limit)))
+
+
+def list_resumes(candidate_id: int | None = None, limit: int = 50) -> list[Resume]:
+    with session_scope() as s:
+        q = select(Resume)
+        if candidate_id is not None:
+            q = q.where(Resume.candidate_id == candidate_id)
+        return list(s.scalars(q.order_by(Resume.id.desc()).limit(limit)))
 
 
 # ---- match results -------------------------------------------------------------------------------

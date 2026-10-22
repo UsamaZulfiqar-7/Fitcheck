@@ -6,9 +6,10 @@
 
 | Layer | Modules | Responsibility |
 |---|---|---|
-| Presentation | `app.py`, `ui/pages/*.py`, `ui/theme.py`, `ui/charts.py`, `ui/state.py` | Streamlit pages, navigation, charts, session state |
+| REST API Gateway | `api/main.py`, `api/routes/*.py`, `api/schemas.py`, `api/client.py` | FastAPI endpoints for Jobs (Text/Image/PDF), Resumes, Analysis, and Health |
+| Presentation | `app.py`, `ui/pages/*.py`, `ui/theme.py`, `ui/charts.py`, `ui/state.py` | Streamlit pages, interactive API explorer, charts, session state |
 | Pipeline | `core/pipeline.py` | Orchestrates the stages: analyse, add a skill to the CV, save an edited CV |
-| Ingestion & extraction | `core/extraction.py`, `core/storage.py` | Validates uploads, reads PDF/DOCX/TXT/images (OCR fallback), keeps raw files |
+| Storage & Ingestion | `core/storage.py`, `core/extraction.py` | Persists original bytes to `data/uploads/` & MinIO S3; extracts text (OCR fallback) |
 | Skill intelligence | `core/taxonomy.py`, `core/skills.py`, `core/onet.py` | Rule-based extraction, normalisation, required/preferred detection, optional O*NET occupation context |
 | Scoring | `core/matching.py` | Skill match, TF-IDF cosine similarity, optional semantic similarity, weighted final score, score explanation |
 | Learning | `core/learning_content.py`, `core/content/*.py`, `core/ai.py` | Curated lessons, starter paths, practice questions, resources, optional AI notes |
@@ -16,19 +17,39 @@
 | Persistence | `core/db.py`, `core/repository.py` | SQLAlchemy models, PostgreSQL primary / SQLite fallback, all reads and writes |
 | Reporting | `core/report.py` | Downloadable PDF match report |
 
-## Data pipeline (single machine)
+## End-to-End Data Pipeline Architecture
 
-1. **Resume and job posting ingestion** - files validated (type, size, signature) or text typed by the user.
-2. **Raw file storage** - original bytes saved under `data/uploads/` and optionally mirrored to MinIO/S3.
-3. **Text extraction** - embedded text first; OCR for scanned PDFs and images.
-4. **Skill extraction and normalisation** - taxonomy rules map wording such as "ReactJS" to the canonical skill "React".
-5. **Match score calculation** - `final = 0.7 x skill match + 0.3 x text similarity`.
-6. **Skill gap analysis** - matched, missing required, missing preferred, additional skills.
-7. **Personalised learning** - a learning path per missing skill with stages, lessons, practice and resources.
-8. **Learning progress storage** - topic completion and path status in the database.
-9. **Updated CV generation** - after explicit confirmation a new CV version is stored; the original is never changed.
-10. **Final match score and report** - the score is recalculated for the new version; a PDF report is produced.
-11. **Optional occupation context** - imported O*NET 31.0 occupation descriptions/tasks are compared with the user's job text to show advisory related occupation profiles in Skill Gap Analysis. This never changes the score.
+```text
+Jobs    ---> [PDF / Image / Text] ---API---> Storage ---> Processing ---> Analyzing ---> Serving
+Resumes ---> [PDF / DOCX] -----------------> Storage ---> Processing ---> Analyzing ---> Serving
+
+How to get Job Posting into the system:
+- Text  -> API  (POST /api/v1/jobs/text)
+- Image -> API  (POST /api/v1/jobs/image)
+- PDF   -> API  (POST /api/v1/jobs/pdf)
+```
+
+1. **API Ingestion Layer**:
+   - `POST /api/v1/jobs/text` - Ingests typed / pasted raw job text.
+   - `POST /api/v1/jobs/image` - Ingests image job ads (JPG, PNG, JPEG).
+   - `POST /api/v1/jobs/pdf` - Ingests PDF job descriptions.
+   - `POST /api/v1/resumes/upload` - Ingests candidate CVs (PDF, DOCX, TXT).
+2. **Storage Layer**:
+   - Unmodified original bytes are saved to local filesystem (`data/uploads/`) and optionally mirrored to MinIO/S3 object storage.
+   - Relational records are created in PostgreSQL / SQLite linking `raw_path`, metadata, and timestamps.
+3. **Processing Layer**:
+   - Embedded text extraction via `pdfplumber` (PDF) and `python-docx` (DOCX).
+   - Optical Character Recognition (OCR) via Tesseract for scanned documents and images.
+   - Text cleaning, line break standardization, and title extraction.
+4. **Analyzing Layer**:
+   - Skill taxonomy matching and alias normalization.
+   - Job requirements classification: **Required** vs. **Preferred (Nice to have)**.
+   - Candidate skill extraction from CV.
+   - TF-IDF vectorization and Cosine Similarity calculation.
+   - Weighted match score computation: `0.7 * skill_match + 0.3 * text_similarity`.
+5. **Serving Layer**:
+   - REST API serving structured JSON (`/docs`, `/redoc`).
+   - Streamlit Web Dashboard serving rich charts, gap analysis, and personalized learning centers.
 
 No distributed processing (Spark, Hadoop, Kafka) is used in the application itself. These technologies are the *subject of the
 learning content* the application teaches.

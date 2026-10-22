@@ -7,6 +7,7 @@ from core import auth  # noqa: E402
 from ui import state, theme  # noqa: E402
 from ui.pages import (  # noqa: E402
     analysis,
+    api_explorer,
     chat_page,
     cv_page,
     gaps,
@@ -21,6 +22,7 @@ from ui.pages import (  # noqa: E402
 ROUTES = {
     "Home Dashboard": home.render,
     "Resume & Job Analysis": analysis.render,
+    "API & Ingestion Pipeline": api_explorer.render,
     "Match Results": results.render,
     "Skill Gap Analysis": gaps.render,
     "AI Skill Assistant": chat_page.render,

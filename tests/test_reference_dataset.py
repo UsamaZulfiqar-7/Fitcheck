@@ -15,6 +15,7 @@ def test_upload_requires_local_minio_configuration(tmp_path, monkeypatch):
 
 
 def test_upload_creates_private_reference_bucket_and_provenance(tmp_path, monkeypatch):
+    pytest.importorskip("minio")
     archive = tmp_path / "onet.zip"
     archive.write_bytes(b"archive data")
     calls = []

@@ -21,8 +21,9 @@ Built with Python + Streamlit. Runs fully offline: **no AI key and no cloud serv
 | Downloads | Updated CV (DOCX / PDF), match report (PDF), original uploaded file |
 | Database | PostgreSQL (primary) with automatic SQLite fallback |
 | Object storage | Private MinIO/S3 buckets for user uploads and O*NET reference archive; O*NET profiles can be imported for advisory occupation suggestions |
+| REST API | FastAPI ingestion & processing pipeline: `Jobs [PDF/Image/Text] -> API -> Storage -> Processing -> Analyzing -> Serving` |
 
-Pages: Home Dashboard, Resume & Job Analysis, Match Results, Skill Gap Analysis, Personalized Learning Center,
+Pages: Home Dashboard, Resume & Job Analysis, API & Ingestion Pipeline, Match Results, Skill Gap Analysis, Personalized Learning Center,
 My Learning Progress, Updated CV & Downloads, Settings.
 
 ## 1. Quick start (Windows 10/11, PowerShell, VS Code)
@@ -51,6 +52,22 @@ streamlit run app.py
 
 The browser opens at http://localhost:8501. Without any configuration FitCheck uses a local SQLite file
 (`data/fitcheck.db`), so you can start immediately.
+
+### 1.1 Running the Ingestion REST API
+
+To start the FastAPI server for programmatic data ingestion:
+
+```powershell
+python run_api.py
+```
+
+* **Interactive Swagger UI:** http://127.0.0.1:8000/docs
+* **ReDoc Documentation:** http://127.0.0.1:8000/redoc
+* Ingestion Endpoints:
+  - `POST /api/v1/jobs/text` - Text -> API
+  - `POST /api/v1/jobs/image` - Image (OCR) -> API
+  - `POST /api/v1/jobs/pdf` - PDF -> API
+  - `POST /api/v1/resumes/upload` - Resume -> Storage
 
 > In VS Code choose the interpreter: `Ctrl+Shift+P` -> *Python: Select Interpreter* -> `.venv`.
 

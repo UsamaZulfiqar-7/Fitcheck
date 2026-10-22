@@ -4,9 +4,28 @@
 CREATE TABLE candidates (
 	id INTEGER NOT NULL, 
 	display_name VARCHAR(120) NOT NULL, 
+	email VARCHAR(255), 
+	auth_provider VARCHAR(40) NOT NULL, 
+	password_hash VARCHAR(255), 
+	password_salt VARCHAR(64), 
+	google_id VARCHAR(200), 
+	avatar_url VARCHAR(600), 
 	created_at DATETIME NOT NULL, 
 	PRIMARY KEY (id), 
 	UNIQUE (display_name)
+);
+
+
+CREATE TABLE onet_occupations (
+	onet_code VARCHAR(20) NOT NULL, 
+	title VARCHAR(300) NOT NULL, 
+	description TEXT NOT NULL, 
+	task_statements JSON NOT NULL, 
+	essential_skills JSON NOT NULL, 
+	transferable_skills JSON NOT NULL, 
+	software_skills JSON NOT NULL, 
+	source_version VARCHAR(20) NOT NULL, 
+	PRIMARY KEY (onet_code)
 );
 
 

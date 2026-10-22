@@ -73,6 +73,14 @@ def render() -> None:
     theme.hero("Resume & Job Analysis", "Upload your CV, add the job posting, review the extracted text, then run the analysis.")
     cand = st.session_state["cand_id"]
 
+    st.markdown(
+        '<div style="background:linear-gradient(90deg, rgba(37,99,235,0.08), rgba(79,70,229,0.08));border:1px solid rgba(37,99,235,0.25);border-radius:10px;padding:0.75rem 1rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;">'
+        '<div><strong>Architecture Pipeline:</strong> <code>Jobs (PDF/Image/Text) ➔ API ➔ Storage ➔ Processing ➔ Analyzing ➔ Serving</code></div>'
+        '<span style="background:#2563EB;color:#fff;font-size:0.75rem;padding:2px 8px;border-radius:12px;font-weight:600;">API & Storage Active</span>'
+        '</div>',
+        unsafe_allow_html=True,
+    )
+
     def _on_load_prev() -> None:
         chosen_id = st.session_state.get("load_prev")
         if chosen_id:
@@ -144,9 +152,9 @@ def render() -> None:
 
 def _run(cand: int, resume_file, resume_text: str, job_text: str, source: str) -> None:
     s = st.session_state
-    with st.status("Running the FitCheck pipeline...", expanded=True) as status:
+    with st.status("Executing Multi-Stage Pipeline...", expanded=True) as status:
         try:
-            st.write("1. Storing the original files")
+            st.write("1. Storage Layer: Persisting raw files to disk / MinIO object storage")
             r_draft = s.get("resume_draft")
             sig = hashlib.md5((r_draft["hash"] + resume_text).encode()).hexdigest()
             if s.get("resume_sig") == sig and s.get("resume_id"):
@@ -158,13 +166,13 @@ def _run(cand: int, resume_file, resume_text: str, job_text: str, source: str) -
                 s["resume_sig"] = sig
             j_draft = s.get("job_draft")
             raw_job = storage.save_raw(j_draft["bytes"], j_draft["name"], "job") if (j_draft and source not in ("typed", "sample")) else None
-            st.write("2. Saving the reviewed text")
+            st.write("2. Processing Layer: Normalizing text and registering storage records")
             job_id = repo.save_job(cand, s.get("job_title_in") or "Untitled job", s.get("job_company_in") or None,
                                    source, raw_job, job_text, is_synthetic=(source == "sample"))
-            st.write("3. Extracting skills and calculating the match score")
+            st.write("3. Analyzing Layer: Extracting skill taxonomy, gaps & calculating TF-IDF match score")
             match_id, result = pipeline.analyze(cand, resume_id, job_id, state.settings())
             s.update(resume_id=resume_id, job_id=job_id, match_id=match_id, cv_flow=None, cv_last_change=None)
-            status.update(label=f"Done - match score {result.final_score} / 100", state="complete")
+            status.update(label=f"Serving Layer Ready - Match Score {result.final_score} / 100", state="complete")
         except Exception as exc:
             status.update(label="The analysis failed", state="error")
             st.error(f"Something went wrong while analysing ({type(exc).__name__}: {exc}). "

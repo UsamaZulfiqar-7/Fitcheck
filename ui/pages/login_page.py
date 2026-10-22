@@ -9,6 +9,7 @@ from __future__ import annotations
 import streamlit as st
 
 from core import auth, repository as repo
+from ui import state
 
 
 # ---------------------------------------------------------------------------
@@ -56,8 +57,7 @@ def _handle_google_callback() -> None:
         "avatar": candidate.avatar_url,
         "provider": "google",
     })
-    st.session_state["cand_id"] = candidate.id
-    st.session_state["cand_name"] = candidate.display_name
+    state.switch_candidate(candidate.display_name)
     st.rerun()
 
 
@@ -352,8 +352,7 @@ def _render_signin() -> None:
             "avatar": candidate.avatar_url,
             "provider": "email",
         })
-        st.session_state["cand_id"] = candidate.id
-        st.session_state["cand_name"] = candidate.display_name
+        state.switch_candidate(candidate.display_name)
         st.rerun()
 
 
@@ -396,7 +395,6 @@ def _render_signup() -> None:
             "avatar": None,
             "provider": "email",
         })
-        st.session_state["cand_id"] = candidate.id
-        st.session_state["cand_name"] = candidate.display_name
+        state.switch_candidate(candidate.display_name)
         st.success(f"✅ Account created! Welcome, {candidate.display_name}!")
         st.rerun()

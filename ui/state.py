@@ -28,9 +28,13 @@ def switch_candidate(name: str) -> int:
     """Select / create the profile and restore its latest analysis (persistence across restarts)."""
     cand = repo.get_or_create_candidate(name)
     s = st.session_state
-    if s["cand_id"] != cand.id:
+    if s.get("cand_id") != cand.id:
         s.update(cand_id=cand.id, cand_name=cand.display_name, resume_id=None, job_id=None, match_id=None,
                  cv_flow=None, cv_last_change=None, ai_notes={})
+        latest = repo.latest_match(cand.id)
+        if latest is not None:
+            s.update(resume_id=latest.resume_id, job_id=latest.job_id, match_id=latest.id)
+    elif s.get("match_id") is None:
         latest = repo.latest_match(cand.id)
         if latest is not None:
             s.update(resume_id=latest.resume_id, job_id=latest.job_id, match_id=latest.id)
